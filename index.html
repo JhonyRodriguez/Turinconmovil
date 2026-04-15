@@ -1,10 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi Web PRO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfers Tenerife Premium</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.hero {
+  padding: 80px 40px;
+  text-align: left;
+  background: linear-gradient(to right, #000, #111);
+}
+
+.hero h1 {
+  font-size: 48px;
+  max-width: 600px;
+}
+
+.hero p {
+  color: #aaa;
+  margin: 20px 0;
+}
+
+.cta {
+  background: #00c2ff;
+  color: #000;
+  padding: 15px 30px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.section {
+  padding: 60px 40px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.pricing {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.form input {
+  margin-bottom: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #777;
+}
+</style>
+
 </head>
+
 <body>
-  <h1>Bienvenido 🚀</h1>
-  <div id="posts"></div>
+
+<header>
+  <div class="logo">Tenerife Transfers</div>
+  <div>+34 600 000 000</div>
+</header>
+
+<section class="hero">
+  <h1>Transfers privados en Tenerife sin esperas</h1>
+  <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
+  <button class="cta">Reservar ahora</button>
+</section>
+
+<section class="section">
+  <h2>Servicios</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>✈️ Aeropuerto</h3>
+      <p>Recogida en Tenerife Sur y Norte</p>
+    </div>
+    <div class="card">
+      <h3>🏝️ Excursiones</h3>
+      <p>Viajes por toda la isla</p>
+    </div>
+    <div class="card">
+      <h3>🚐 Privado</h3>
+      <p>Vehículos exclusivos</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Precios orientativos</h2>
+  <div class="pricing">
+    <p>Aeropuerto → Costa Adeje desde 40€</p>
+    <p>Aeropuerto → Playa de las Américas desde 40€</p>
+    <p>Aeropuerto → Santa Cruz desde 120€</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Reserva tu transfer</h2>
+  <div class="form">
+    <input placeholder="Nombre">
+    <input placeholder="Email">
+    <input placeholder="Origen">
+    <input placeholder="Destino">
+    <input placeholder="Fecha">
+    <button class="cta">Confirmar reserva</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 Tenerife Transfers - Servicio Premium
+</footer>
+
 </body>
 </html>

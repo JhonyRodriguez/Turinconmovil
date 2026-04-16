@@ -35,7 +35,7 @@ header {
   color: #00c2ff;
 }
 
-/* HERO MÁS TURÍSTICO */
+/* HERO */
 .hero {
   padding: 140px 20px;
   text-align: center;
@@ -87,15 +87,6 @@ header {
   margin-bottom: 20px;
 }
 
-/* PRECIOS */
-.card p {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  margin: 0;
-}
-
 /* FORM */
 .form-group {
   margin-bottom: 12px;
@@ -131,11 +122,13 @@ select, input {
   margin-top: 10px;
 }
 
+/* RESULTADO */
 #precio {
   font-size: 22px;
   color: #00ff9d;
   margin-top: 10px;
   font-weight: 600;
+  line-height: 1.5;
 }
 
 /* WHATSAPP */
@@ -162,10 +155,10 @@ select, input {
 
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
-  <p>Servicio premium desde aeropuerto con recogida directa y precio cerrado</p>
+  <p>Servicio premium con cálculo automático de precio según distancia real</p>
 
   <div class="badge">
-    ⭐ 4.9/5 valoraciones · 🚖 Base Santa Cruz · 💳 Precio real según distancia
+    ⭐ 4.9/5 valoraciones · 🚖 Base Santa Cruz · 📍 Precio dinámico por km
   </div>
 </section>
 
@@ -174,25 +167,13 @@ select, input {
   <div class="left">
 
     <div class="card">
-      <h2>Precios orientativos</h2>
-
-      <p><span>Costa Adeje</span><span>45€ - 70€</span></p>
-      <p><span>Playa de las Américas</span><span>45€ - 70€</span></p>
-      <p><span>Los Cristianos</span><span>40€ - 65€</span></p>
-      <p><span>Puerto de la Cruz</span><span>95€ - 130€</span></p>
-      <p><span>Santa Cruz</span><span>20€ - 35€</span></p>
-
-    </div>
-
-    <div class="card">
-
       <h2>Reserva rápida</h2>
 
       <div class="form-group">
         <label>Origen</label>
         <select id="origen">
-          <option value="TFS">Aeropuerto Sur (TFS) — ~60 km desde base</option>
-          <option value="TFN">Aeropuerto Norte (TFN) — ~15 km desde base</option>
+          <option value="TFS">Aeropuerto Sur (TFS)</option>
+          <option value="TFN">Aeropuerto Norte (TFN)</option>
         </select>
       </div>
 
@@ -230,53 +211,64 @@ select, input {
 </a>
 
 <script>
-const precios = {
-  TFS: {
-    "Costa Adeje": 55,
-    "Playa de las Américas": 55,
-    "Los Cristianos": 50,
-    "Puerto de la Cruz": 115,
-    "Santa Cruz": 90
-  },
-  TFN: {
-    "Costa Adeje": 70,
-    "Playa de las Américas": 70,
-    "Los Cristianos": 65,
-    "Puerto de la Cruz": 45,
-    "Santa Cruz": 25
-  }
+
+/* TARIFA REALISTA */
+const tarifaKm = 1.25;
+const baseServicio = 8;
+
+/* DISTANCIA DESDE BASE SANTA CRUZ */
+const distanciaBase = {
+  TFS: 60,
+  TFN: 15
+};
+
+/* DISTANCIA A DESTINOS */
+const destinosKm = {
+  "Costa Adeje": 65,
+  "Playa de las Américas": 60,
+  "Los Cristianos": 55,
+  "Puerto de la Cruz": 35,
+  "Santa Cruz": 0
 };
 
 function calcular() {
-  let o = document.getElementById("origen").value;
-  let d = document.getElementById("destino").value;
 
-  if (!d) {
-    document.getElementById("precio").innerHTML = "Selecciona origen y destino";
+  let origen = document.getElementById("origen").value;
+  let destino = document.getElementById("destino").value;
+
+  if (!destino) {
+    document.getElementById("precio").innerHTML = "Selecciona destino";
     return;
   }
 
-  let precio = precios[o][d];
+  let km = distanciaBase[origen] + destinosKm[destino];
+  let precio = Math.round((km * tarifaKm) + baseServicio);
 
   document.getElementById("precio").innerHTML =
-    "Precio estimado: " + precio + "€";
+    "Distancia estimada: " + km + " km<br>" +
+    "Precio final: " + precio + "€";
+
 }
 
 function reservar() {
-  let o = document.getElementById("origen").value;
-  let d = document.getElementById("destino").value;
-  let f = document.getElementById("fecha").value;
 
-  let precio = precios[o][d];
+  let origen = document.getElementById("origen").value;
+  let destino = document.getElementById("destino").value;
+  let fecha = document.getElementById("fecha").value;
 
-  let msg = `Transfer Tenerife:
-Origen: ${o}
-Destino: ${d}
-Fecha: ${f}
-Precio: ${precio}€`;
+  let km = distanciaBase[origen] + destinosKm[destino];
+  let precio = Math.round((km * tarifaKm) + baseServicio);
 
-  window.open("https://wa.me/34685529924?text=" + encodeURIComponent(msg), "_blank");
+  let mensaje = `Transfer Tenerife:
+Origen: ${origen}
+Destino: ${destino}
+Fecha: ${fecha}
+Distancia: ${km} km
+Precio final: ${precio}€`;
+
+  window.open("https://wa.me/34685529924?text=" + encodeURIComponent(mensaje), "_blank");
 }
+
 </script>
 
 </body>

@@ -6,10 +6,7 @@
 
 <title>Tenerife Transfers Premium</title>
 
-<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -42,8 +39,8 @@ header {
 .hero {
   padding: 140px 20px;
   text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-              url('https://images.unsplash.com/photo-1605559424843-9e4c228c1a3b') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+              url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 
 .hero h1 {
@@ -54,8 +51,14 @@ header {
 
 .hero p {
   font-size: 18px;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-top: 10px;
+}
+
+.badge {
+  margin-top: 20px;
+  opacity: 0.9;
+  font-size: 14px;
 }
 
 /* LAYOUT */
@@ -71,7 +74,7 @@ header {
   min-width: 320px;
 }
 
-/* CARDS PREMIUM */
+/* CARDS */
 .card {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
@@ -87,7 +90,7 @@ header {
   transform: translateY(-5px);
 }
 
-/* PRECIOS estilo tabla */
+/* PRECIOS */
 .card p {
   display: flex;
   justify-content: space-between;
@@ -146,9 +149,9 @@ label {
   font-weight: 600;
 }
 
-/* RIGHT CARDS ICON STYLE */
+/* RIGHT CARDS */
 .right .card i {
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 8px;
   color: #00c2ff;
 }
@@ -175,22 +178,10 @@ footer {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* TRUST BADGE */
-.badge {
-  margin-top: 20px;
-  opacity: 0.8;
-  font-size: 14px;
-}
-
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-  header {
-    flex-direction: column;
-    gap: 10px;
-  }
+  .hero h1 { font-size: 32px; }
+  header { flex-direction: column; gap: 10px; }
 }
 </style>
 
@@ -218,13 +209,14 @@ footer {
   <div class="left">
 
     <div class="card">
-      <h2>Precios desde Aeropuerto Sur (TFS)</h2>
+      <h2>Precios orientativos</h2>
 
-      <p><span>Costa Adeje</span><span>40€</span></p>
-      <p><span>Playa de las Américas</span><span>40€</span></p>
-      <p><span>Los Cristianos</span><span>35€</span></p>
-      <p><span>Puerto de la Cruz</span><span>110€</span></p>
-      <p><span>Santa Cruz</span><span>120€</span></p>
+      <p><span>Costa Adeje</span><span id="p-adeje">40€</span></p>
+      <p><span>Playa de las Américas</span><span id="p-am">40€</span></p>
+      <p><span>Los Cristianos</span><span id="p-cris">35€</span></p>
+      <p><span>Puerto de la Cruz</span><span id="p-puerto">110€</span></p>
+      <p><span>Santa Cruz</span><span id="p-santa">120€</span></p>
+
     </div>
 
     <div class="card">
@@ -235,7 +227,8 @@ footer {
         <div class="form-group">
           <label>Origen</label>
           <select id="origen">
-            <option>Aeropuerto Tenerife Sur (TFS)</option>
+            <option value="TFS">Aeropuerto Sur (TFS)</option>
+            <option value="TFN">Aeropuerto Norte (TFN)</option>
           </select>
         </div>
 
@@ -289,27 +282,40 @@ footer {
 
 <script>
 const precios = {
-  "Costa Adeje": 40,
-  "Playa de las Américas": 40,
-  "Los Cristianos": 35,
-  "Puerto de la Cruz": 110,
-  "Santa Cruz": 120
+  TFS: {
+    "Costa Adeje": 40,
+    "Playa de las Américas": 40,
+    "Los Cristianos": 35,
+    "Puerto de la Cruz": 110,
+    "Santa Cruz": 120
+  },
+  TFN: {
+    "Costa Adeje": 95,
+    "Playa de las Américas": 95,
+    "Los Cristianos": 90,
+    "Puerto de la Cruz": 35,
+    "Santa Cruz": 25
+  }
 };
 
 function calcular() {
+  let origen = document.getElementById("origen").value;
   let destino = document.getElementById("destino").value;
-  let precio = precios[destino];
+
+  let precio = precios[origen][destino];
 
   document.getElementById("precio").innerHTML =
-    precio ? "Precio estimado: " + precio + "€" : "Selecciona un destino";
+    precio ? "Precio estimado: " + precio + "€" : "Selecciona origen y destino";
 }
 
 function reservar() {
+  let origen = document.getElementById("origen").value;
   let destino = document.getElementById("destino").value;
   let fecha = document.getElementById("fecha").value;
-  let precio = precios[destino];
 
-  let mensaje = `Hola, quiero reservar un transfer desde Aeropuerto Sur (TFS) a ${destino} el día ${fecha}. Precio estimado: ${precio}€`;
+  let precio = precios[origen][destino];
+
+  let mensaje = `Hola, quiero reservar un transfer desde ${origen} a ${destino} el día ${fecha}. Precio estimado: ${precio}€`;
 
   window.open("https://wa.me/34685529924?text=" + encodeURIComponent(mensaje), "_blank");
 }

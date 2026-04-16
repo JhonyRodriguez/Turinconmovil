@@ -3,13 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transfers Tenerife Premium</title>
+
+<title>Tenerife Transfers Premium</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0b0b0b;
+  font-family: 'Inter', sans-serif;
+  background: #070707;
   color: #fff;
 }
 
@@ -18,22 +25,37 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
-  background: #000;
-  border-bottom: 1px solid #222;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .logo {
-  font-weight: bold;
+  font-weight: 700;
   color: #00c2ff;
 }
 
 /* HERO */
 .hero {
-  padding: 100px 40px;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+  padding: 140px 20px;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
               url('https://images.unsplash.com/photo-1605559424843-9e4c228c1a3b') center/cover no-repeat;
+}
+
+.hero h1 {
+  font-size: 48px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-top: 10px;
 }
 
 /* LAYOUT */
@@ -46,45 +68,89 @@ header {
 
 .left, .right {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
 }
 
-/* CARDS */
+/* CARDS PREMIUM */
 .card {
-  background: #111;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #222;
+  border-radius: 14px;
   margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* PRECIOS estilo tabla */
+.card p {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin: 0;
 }
 
 /* FORM */
+.form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  font-size: 12px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 4px;
+}
+
 .form select, .form input {
   width: 100%;
-  margin-bottom: 10px;
   padding: 12px;
-  background: #1a1a1a;
+  background: rgba(0,0,0,0.4);
   color: white;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  outline: none;
 }
 
 /* BOTÓN */
 .cta {
-  background: linear-gradient(45deg, #00c2ff, #00ff9d);
+  background: linear-gradient(90deg, #00c2ff, #00ff9d);
   color: #000;
-  padding: 15px;
+  padding: 14px;
   border: none;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,255,157,0.15);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0,255,157,0.25);
 }
 
 /* PRECIO */
 #precio {
-  font-size: 24px;
+  font-size: 22px;
   color: #00ff9d;
   margin-top: 10px;
+  font-weight: 600;
+}
+
+/* RIGHT CARDS ICON STYLE */
+.right .card i {
+  font-size: 20px;
+  margin-right: 8px;
+  color: #00c2ff;
 }
 
 /* FOOTER */
@@ -94,6 +160,38 @@ footer {
   background: #000;
   color: #777;
 }
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  padding: 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* TRUST BADGE */
+.badge {
+  margin-top: 20px;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 </style>
 
 </head>
@@ -102,12 +200,16 @@ footer {
 
 <header>
   <div class="logo">Tenerife Transfers</div>
-  <div>+34 685 529 924</div>
+  <div><i class="fa fa-phone"></i> +34 685 529 924</div>
 </header>
 
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
-  <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
+  <p>Servicio premium desde el aeropuerto con precio cerrado y atención inmediata</p>
+
+  <div class="badge">
+    ⭐ 4.9/5 valoraciones · 🚖 Servicio oficial Tenerife · 💳 Sin costes ocultos
+  </div>
 </section>
 
 <section class="container">
@@ -115,41 +217,51 @@ footer {
   <!-- IZQUIERDA -->
   <div class="left">
 
-    <!-- PRECIOS -->
     <div class="card">
       <h2>Precios desde Aeropuerto Sur (TFS)</h2>
-      <p>Costa Adeje → 40€</p>
-      <p>Playa de las Américas → 40€</p>
-      <p>Los Cristianos → 35€</p>
-      <p>Puerto de la Cruz → 110€</p>
-      <p>Santa Cruz → 120€</p>
+
+      <p><span>Costa Adeje</span><span>40€</span></p>
+      <p><span>Playa de las Américas</span><span>40€</span></p>
+      <p><span>Los Cristianos</span><span>35€</span></p>
+      <p><span>Puerto de la Cruz</span><span>110€</span></p>
+      <p><span>Santa Cruz</span><span>120€</span></p>
     </div>
 
-    <!-- FORMULARIO -->
     <div class="card">
       <h2>Reserva rápida</h2>
 
       <div class="form">
-        <select id="origen">
-          <option value="TFS">Aeropuerto Tenerife Sur (TFS)</option>
-        </select>
 
-        <select id="destino">
-          <option value="">Selecciona destino</option>
-          <option value="Costa Adeje">Costa Adeje</option>
-          <option value="Playa de las Américas">Playa de las Américas</option>
-          <option value="Los Cristianos">Los Cristianos</option>
-          <option value="Puerto de la Cruz">Puerto de la Cruz</option>
-          <option value="Santa Cruz">Santa Cruz</option>
-        </select>
+        <div class="form-group">
+          <label>Origen</label>
+          <select id="origen">
+            <option>Aeropuerto Tenerife Sur (TFS)</option>
+          </select>
+        </div>
 
-        <input type="date" id="fecha">
+        <div class="form-group">
+          <label>Destino</label>
+          <select id="destino">
+            <option value="">Selecciona destino</option>
+            <option value="Costa Adeje">Costa Adeje</option>
+            <option value="Playa de las Américas">Playa de las Américas</option>
+            <option value="Los Cristianos">Los Cristianos</option>
+            <option value="Puerto de la Cruz">Puerto de la Cruz</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Fecha</label>
+          <input type="date" id="fecha">
+        </div>
 
         <button class="cta" onclick="calcular()">Calcular precio</button>
 
         <div id="precio"></div>
 
         <button class="cta" onclick="reservar()">Reservar por WhatsApp</button>
+
       </div>
     </div>
 
@@ -158,25 +270,10 @@ footer {
   <!-- DERECHA -->
   <div class="right">
 
-    <div class="card">
-      <h3>✈️ Traslados aeropuerto</h3>
-      <p>Recogida sin esperas en Tenerife Sur</p>
-    </div>
-
-    <div class="card">
-      <h3>🏝️ Excursiones privadas</h3>
-      <p>Viajes personalizados por la isla</p>
-    </div>
-
-    <div class="card">
-      <h3>💶 Precio fijo</h3>
-      <p>Sin costes ocultos</p>
-    </div>
-
-    <div class="card">
-      <h3>⭐ 4.9/5</h3>
-      <p>Clientes satisfechos</p>
-    </div>
+    <div class="card"><i class="fa fa-plane"></i> Transfers aeropuerto sin esperas</div>
+    <div class="card"><i class="fa fa-map"></i> Excursiones privadas por la isla</div>
+    <div class="card"><i class="fa fa-euro-sign"></i> Precio fijo sin sorpresas</div>
+    <div class="card"><i class="fa fa-star"></i> 4.9/5 clientes satisfechos</div>
 
   </div>
 
@@ -186,10 +283,8 @@ footer {
   © 2026 Tenerife Transfers
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/34685529924"
-style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;">
-💬
+<a class="whatsapp" href="https://wa.me/34685529924" target="_blank">
+  <i class="fa fa-whatsapp"></i>
 </a>
 
 <script>
@@ -205,11 +300,8 @@ function calcular() {
   let destino = document.getElementById("destino").value;
   let precio = precios[destino];
 
-  if(precio){
-    document.getElementById("precio").innerHTML = "Precio estimado: " + precio + "€";
-  } else {
-    document.getElementById("precio").innerHTML = "Selecciona un destino";
-  }
+  document.getElementById("precio").innerHTML =
+    precio ? "Precio estimado: " + precio + "€" : "Selecciona un destino";
 }
 
 function reservar() {
@@ -217,10 +309,9 @@ function reservar() {
   let fecha = document.getElementById("fecha").value;
   let precio = precios[destino];
 
-  let mensaje = "Hola, quiero reservar un transfer desde Aeropuerto Sur (TFS) a " + destino + " el día " + fecha + ". Precio estimado: " + precio + "€";
+  let mensaje = `Hola, quiero reservar un transfer desde Aeropuerto Sur (TFS) a ${destino} el día ${fecha}. Precio estimado: ${precio}€`;
 
-  let url = "https://wa.me/34685529924?text=" + encodeURIComponent(mensaje);
-  window.open(url, '_blank');
+  window.open("https://wa.me/34685529924?text=" + encodeURIComponent(mensaje), "_blank");
 }
 </script>
 

@@ -35,83 +35,76 @@ header {
 .hero {
   padding: 100px 40px;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-              url('https://images.unsplash.com/photo-1593351415075-3bac9f45c877') center/cover no-repeat;
+              url('https://images.unsplash.com/photo-1605559424843-9e4c228c1a3b') center/cover no-repeat;
 }
 
 .hero h1 {
   font-size: 48px;
   max-width: 600px;
-  color: #ffffff;
 }
 
 .hero p {
   color: #ddd;
   margin: 20px 0;
-  font-size: 18px;
 }
 
-/* BOTONES */
-.cta {
-  background: linear-gradient(45deg, #00c2ff, #00ff9d);
-  color: #000;
-  padding: 15px 30px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.cta:hover {
-  opacity: 0.9;
-}
-
-/* SECCIONES */
-.section {
-  padding: 60px 40px;
-}
-
-h2 {
-  font-size: 32px;
-  color: #00ff9d;
-}
-
-/* CARDS */
-.cards {
+/* LAYOUT */
+.container {
   display: flex;
-  gap: 20px;
+  gap: 40px;
+  padding: 60px 40px;
   flex-wrap: wrap;
 }
 
-.card {
-  background: linear-gradient(145deg, #111, #1a1a1a);
+.left, .right {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* FORM */
+.form {
+  background: #111;
   padding: 20px;
   border-radius: 10px;
-  flex: 1;
-  min-width: 250px;
-  transition: transform 0.3s;
-  border: 1px solid #222;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #00c2ff;
-}
-
-/* FORMULARIO */
-.form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-}
-
-.form input {
+.form select, .form input {
+  width: 100%;
   margin-bottom: 10px;
   padding: 12px;
   border: none;
   border-radius: 5px;
   background: #1a1a1a;
   color: white;
-  border: 1px solid #333;
+}
+
+/* BOTÓN */
+.cta {
+  background: linear-gradient(45deg, #00c2ff, #00ff9d);
+  color: #000;
+  padding: 15px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cta:hover {
+  opacity: 0.9;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #111, #1a1a1a);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #222;
 }
 
 /* FOOTER */
@@ -136,68 +129,84 @@ footer {
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
   <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
-
-  <button class="cta" onclick="window.location.href='https://wa.me/34600000000'">
-    Reservar ahora
-  </button>
 </section>
 
-<!-- RESERVA -->
-<section class="section">
-  <h2>Reserva rápida</h2>
+<!-- CONTENIDO PRINCIPAL -->
+<section class="container">
 
-  <div class="form">
-    <input placeholder="📍 Origen (Ej: Aeropuerto TFS)">
-    <input placeholder="🏁 Destino (Ej: Costa Adeje)">
-    <input type="date">
-    <button class="cta" onclick="alert('Reserva enviada')">
-      Calcular / Reservar
-    </button>
-  </div>
-</section>
+  <!-- IZQUIERDA (FORMULARIO) -->
+  <div class="left">
+    <h2>Reserva rápida</h2>
 
-<!-- SERVICIOS -->
-<section class="section">
-  <h2>Servicios</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>✈️ Aeropuerto</h3>
-      <p>Recogida en Tenerife Sur y Norte</p>
+    <div class="form">
+      <select>
+        <option>📍 Origen</option>
+        <option>Aeropuerto Tenerife Sur (TFS)</option>
+        <option>Aeropuerto Tenerife Norte (TFN)</option>
+        <option>Costa Adeje</option>
+        <option>Playa de las Américas</option>
+        <option>Los Cristianos</option>
+        <option>Puerto de la Cruz</option>
+        <option>Santa Cruz</option>
+        <option>La Laguna</option>
+        <option>Los Gigantes</option>
+      </select>
+
+      <select>
+        <option>🏁 Destino</option>
+        <option>Aeropuerto Tenerife Sur (TFS)</option>
+        <option>Aeropuerto Tenerife Norte (TFN)</option>
+        <option>Costa Adeje</option>
+        <option>Playa de las Américas</option>
+        <option>Los Cristianos</option>
+        <option>Puerto de la Cruz</option>
+        <option>Santa Cruz</option>
+        <option>La Laguna</option>
+        <option>Los Gigantes</option>
+      </select>
+
+      <input type="date">
+
+      <button class="cta">Calcular / Reservar</button>
     </div>
-    <div class="card">
-      <h3>🏝️ Excursiones</h3>
-      <p>Viajes por toda la isla</p>
-    </div>
-    <div class="card">
-      <h3>🚐 Privado</h3>
-      <p>Vehículos exclusivos</p>
-    </div>
   </div>
-</section>
 
-<!-- PRECIOS -->
-<section class="section">
-  <h2>Precios orientativos</h2>
-  <div class="card">
-    <p>Aeropuerto → Costa Adeje desde 40€</p>
-    <p>Aeropuerto → Playa de las Américas desde 40€</p>
-    <p>Aeropuerto → Santa Cruz desde 120€</p>
+  <!-- DERECHA (INFO) -->
+  <div class="right">
+
+    <div class="cards">
+      <div class="card">
+        <h3>✈️ Traslados aeropuerto</h3>
+        <p>Recogida en Tenerife Sur y Norte sin esperas</p>
+      </div>
+
+      <div class="card">
+        <h3>🏝️ Excursiones privadas</h3>
+        <p>Viajes por toda la isla con conductor</p>
+      </div>
+
+      <div class="card">
+        <h3>💶 Precios fijos</h3>
+        <p>Sin sorpresas ni costes ocultos</p>
+      </div>
+
+      <div class="card">
+        <h3>⭐ 4.9/5 clientes</h3>
+        <p>Más de 500 valoraciones reales</p>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<!-- CONFIANZA -->
-<section class="section">
-  <h2>Más de 500 clientes satisfechos</h2>
-  <p>⭐ 4.9/5 en valoraciones reales</p>
 </section>
 
 <footer>
   © 2026 Tenerife Transfers - Servicio Premium
 </footer>
 
-<!-- BOTÓN WHATSAPP -->
+<!-- WHATSAPP -->
 <a href="https://wa.me/34600000000"
-style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;text-decoration:none;font-size:20px;">
+style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;">
 💬
 </a>
 

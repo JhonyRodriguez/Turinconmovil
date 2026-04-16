@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfers Tenerife Premium | Reserva Oficial</title>
+    <title>Transfers Tenerife Premium | Servicios Corporativos y Privados</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -15,6 +15,7 @@
             --text-main: #ffffff;
             --text-dim: #a0aec0;
             --accent: #00d4ff;
+            --success: #25d366;
         }
 
         body {
@@ -46,78 +47,105 @@
             color: var(--accent);
             text-decoration: none;
             background: rgba(0, 122, 255, 0.1);
-            padding: 8px 15px;
+            padding: 8px 20px;
             border-radius: 50px;
             font-size: 14px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: 0.3s;
         }
 
+        .phone-contact:hover { background: var(--primary); color: white; }
+
         .hero {
-            padding: 100px 20px;
+            padding: 120px 20px;
             text-align: center;
-            background: linear-gradient(rgba(5, 8, 10, 0.7), rgba(5, 8, 10, 0.9)), 
+            background: linear-gradient(rgba(5, 8, 10, 0.8), rgba(5, 8, 10, 0.95)), 
                         url('https://images.unsplash.com/photo-1506197357125-3b943564972e?auto=format&fit=crop&q=80&w=1600') center/cover;
         }
 
-        .section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 32px; margin-bottom: 40px; }
+        .hero h1 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 15px; }
+        .hero p { color: var(--text-dim); font-size: 18px; max-width: 700px; margin: 0 auto; }
 
-        /* GRID DE 4 SERVICIOS */
+        .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+
+        /* GRID DE SERVICIOS (5 TARJETAS) */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 30px 20px;
-            border-radius: 16px;
+            padding: 40px 25px;
+            border-radius: 20px;
             text-align: center;
             border: 1px solid #1e262f;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { color: var(--accent); margin-bottom: 10px; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 122, 255, 0.2); }
+        .card h3 { font-size: 20px; color: var(--accent); margin-bottom: 15px; }
+        .card p { font-size: 14px; color: var(--text-dim); margin: 0; }
 
-        /* FORMULARIO MEJORADO */
-        .booking-form {
+        /* FORMULARIO PROFESIONAL */
+        .booking-container {
             background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            max-width: 600px;
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 650px;
             margin: 0 auto;
             color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full-width { grid-column: span 2; }
+
+        .form-group { margin-bottom: 5px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #666; text-transform: uppercase; }
         
         input, select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
             font-family: inherit;
-            box-sizing: border-box;
-        }
-
-        .cta-button {
-            width: 100%;
-            background: #25d366; /* Color WhatsApp */
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 16px;
+            font-size: 15px;
+            background: #f8fafc;
             transition: 0.3s;
         }
 
-        .cta-button:hover { background: #128c7e; }
+        input:focus, select:focus { outline: none; border-color: var(--primary); background: #fff; }
 
-        footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid #1a222d; }
+        .cta-button {
+            width: 100%;
+            background: var(--success);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover { background: #1eb956; transform: scale(1.02); }
+
+        footer { text-align: center; padding: 60px 20px; color: var(--text-dim); background: #020406; border-top: 1px solid #1a222d; }
+
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
     </style>
 </head>
 <body>
@@ -128,8 +156,8 @@
 </header>
 
 <section class="hero">
-    <h1>Tu transporte de confianza en Tenerife</h1>
-    <p>Calidad Premium en traslados privados y aeropuertos.</p>
+    <h1>Excelencia en Transporte Privado</h1>
+    <p>Puntualidad, confort y discreción en cada trayecto por la isla de Tenerife.</p>
 </section>
 
 <section class="section">
@@ -137,90 +165,111 @@
     <div class="cards">
         <div class="card">
             <h3>✈️ Aeropuertos</h3>
-            <p>Traslados directos desde TFN y TFS a su hotel.</p>
+            <p>Recogidas en Tenerife Norte y Sur con seguimiento de vuelo en tiempo real.</p>
         </div>
         <div class="card">
             <h3>🏙️ Interurbanos</h3>
-            <p>Nos movemos entre municipios con tarifas fijas.</p>
+            <p>Traslados rápidos y cómodos entre cualquier municipio de la isla.</p>
+        </div>
+        <div class="card">
+            <h3>💼 Empresas</h3>
+            <p>Traslados ejecutivos y eventos con la máxima discreción y puntualidad.</p>
         </div>
         <div class="card">
             <h3>🏝️ Excursiones</h3>
-            <p>Rutas personalizadas al Teide, Masca y más.</p>
+            <p>Visitas privadas personalizadas a los rincones más bellos de Tenerife.</p>
         </div>
         <div class="card">
             <h3>🚐 Grupos VIP</h3>
-            <p>Vehículos amplios para familias o eventos.</p>
+            <p>Vehículos de alta capacidad para familias, bodas y traslados grupales.</p>
         </div>
     </div>
 </section>
 
-<section class="section" id="reserva">
-    <h2>Reserva tu Transfer</h2>
-    <form id="transferForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="booking-form">
-        <div class="form-group">
-            <label>Nombre Completo</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Ej. Juan Pérez" required>
-        </div>
+<section class="section" id="reserva" style="background: rgba(255,255,255,0.02)">
+    <h2>Solicitar Reserva</h2>
+    <div class="booking-container">
+        <form id="transferForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label>Nombre y Apellidos</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre del pasajero principal" required>
+                </div>
 
-        <div class="form-group">
-            <label>Origen</label>
-            <select name="origen" id="origen" required>
-                <option value="">Seleccione origen...</option>
-                <option value="Aeropuerto Tenerife Sur (TFS)">Aeropuerto Tenerife Sur (TFS)</option>
-                <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
-                <option value="Municipio/Otro">Otro (Municipio/Hotel)</option>
-            </select>
-        </div>
+                <div class="form-group">
+                    <label>Punto de Origen</label>
+                    <select name="origen" id="origen" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Aeropuerto Tenerife Sur (TFS)">Aeropuerto Tenerife Sur (TFS)</option>
+                        <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
+                        <option value="Hotel / Domicilio">Hotel / Domicilio (Indicar en notas)</option>
+                        <option value="Puerto Santa Cruz">Puerto / Crucero</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <label>Destino (Municipios Principales)</label>
-            <select name="destino" id="destino" required>
-                <option value="">Seleccione destino...</option>
-                <option value="Adeje / Costa Adeje">Adeje / Costa Adeje</option>
-                <option value="Arona / Playa de las Américas">Arona / Playa de las Américas</option>
-                <option value="Puerto de la Cruz">Puerto de la Cruz</option>
-                <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
-                <option value="Los Gigantes / Santiago del Teide">Los Gigantes</option>
-                <option value="Granadilla / El Médano">Granadilla / El Médano</option>
-                <option value="San Cristóbal de La Laguna">La Laguna</option>
-                <option value="Guía de Isora">Guía de Isora</option>
-            </select>
-        </div>
+                <div class="form-group">
+                    <label>Municipio de Destino</label>
+                    <select name="destino" id="destino" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Adeje / Costa Adeje">Costa Adeje</option>
+                        <option value="Arona / Playa de las Américas">Playa de las Américas</option>
+                        <option value="Puerto de la Cruz">Puerto de la Cruz</option>
+                        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                        <option value="Santiago del Teide / Gigantes">Los Gigantes</option>
+                        <option value="La Laguna">La Laguna</option>
+                        <option value="Guía de Isora">Guía de Isora</option>
+                        <option value="Otro">Otro (Especificar)</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <label>Fecha y Hora</label>
-            <input type="datetime-local" name="fecha" id="fecha" required>
-        </div>
+                <div class="form-group full-width">
+                    <label>Fecha y Hora de Recogida</label>
+                    <input type="datetime-local" name="fecha" id="fecha" required>
+                </div>
+            </div>
 
-        <button type="button" class="cta-button" onclick="enviarReserva()">RESERVAR POR WHATSAPP Y EMAIL</button>
-    </form>
+            <button type="button" class="cta-button" onclick="enviarReserva()">
+                <span>Confirmar por WhatsApp y Email</span>
+            </button>
+        </form>
+    </div>
 </section>
 
 <script>
     function enviarReserva() {
-        // Obtener valores
         const nombre = document.getElementById('nombre').value;
         const origen = document.getElementById('origen').value;
         const destino = document.getElementById('destino').value;
         const fecha = document.getElementById('fecha').value;
-        const telefonoEmpresa = "34600000000"; // SUSTITUYE POR TU WHATSAPP SIN EL +
-
+        
+        // --- CONFIGURACIÓN ---
+        const telefonoWhatsApp = "34600000000"; // Tu número sin el +
+        
         if(!nombre || !origen || !destino || !fecha) {
-            alert("Por favor, rellena todos los campos.");
+            alert("Por favor, complete todos los campos para procesar su reserva.");
             return;
         }
 
-        // 1. Enviar por WhatsApp
-        const mensaje = `Hola! Me gustaría reservar un transfer:%0A*Nombre:* ${nombre}%0A*Origen:* ${origen}%0A*Destino:* ${destino}%0A*Fecha:* ${fecha}`;
-        window.open(`https://wa.me/${telefonoEmpresa}?text=${mensaje}`, '_blank');
+        // 1. Mensaje para WhatsApp
+        const mensaje = `*SOLICITUD DE TRANSFER*%0A--------------------------%0A*Pasajero:* ${nombre}%0A*Origen:* ${origen}%0A*Destino:* ${destino}%0A*Fecha/Hora:* ${fecha}%0A--------------------------%0A_Solicitud enviada desde la web._`;
+        
+        // Abrir WhatsApp
+        window.open(`https://wa.me/${telefonoWhatsApp}?text=${mensaje}`, '_blank');
 
-        // 2. Enviar por Email (Simulando el envío del formulario)
-        document.getElementById('transferForm').submit();
+        // 2. Enviar por Formspree (Email)
+        const form = document.getElementById('transferForm');
+        if(form.action.includes("TU_ID_AQUI")) {
+            console.log("Nota: Configura tu ID de Formspree para recibir correos.");
+        } else {
+            form.submit();
+        }
     }
 </script>
 
 <footer>
-    © 2026 Tenerife Transfers Premium - Conectando la Isla.
+    <p><strong>TENERIFE TRANSFERS PREMIUM</strong></p>
+    <p>Servicio Oficial de Transporte Privado | Disponibilidad 24/7</p>
+    <p style="font-size: 12px; margin-top: 20px; opacity: 0.5;">© 2026 Todos los derechos reservados.</p>
 </footer>
 
 </body>

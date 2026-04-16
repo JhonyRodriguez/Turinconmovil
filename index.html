@@ -1,274 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfers Tenerife Premium | Servicios Corporativos y Privados</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #007aff;
-            --secondary: #0a1118;
-            --bg-dark: #05080a;
-            --card-bg: #12181f;
-            --text-main: #ffffff;
-            --text-dim: #a0aec0;
-            --accent: #00d4ff;
-            --success: #25d366;
-        }
+<style>
+    .hero {
+        position: relative;
+        padding: 180px 20px;
+        text-align: center;
+        /* Imagen de una carretera escénica en Tenerife con vistas al mar */
+        background-image: url('https://images.unsplash.com/photo-1581442123075-846f48f4388e?q=80&w=2000&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+    /* Overlay con degradado para un acabado más profesional */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(5, 8, 10, 0.9) 0%, rgba(5, 8, 10, 0.4) 100%);
+        z-index: 1;
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(10, 17, 24, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #1a222d;
-        }
+    .hero h1 { 
+        font-size: clamp(34px, 7vw, 60px); 
+        margin-bottom: 20px; 
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para resaltar sobre el fondo turístico */
+    }
 
-        .logo { font-weight: 700; font-size: 22px; color: var(--text-main); text-decoration: none; }
-        .logo span { color: var(--primary); }
-
-        .phone-contact {
-            font-weight: 600;
-            color: var(--accent);
-            text-decoration: none;
-            background: rgba(0, 122, 255, 0.1);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            transition: 0.3s;
-        }
-
-        .phone-contact:hover { background: var(--primary); color: white; }
-
-        .hero {
-            padding: 120px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(5, 8, 10, 0.8), rgba(5, 8, 10, 0.95)), 
-                        url('https://images.unsplash.com/photo-1506197357125-3b943564972e?auto=format&fit=crop&q=80&w=1600') center/cover;
-        }
-
-        .hero h1 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 15px; }
-        .hero p { color: var(--text-dim); font-size: 18px; max-width: 700px; margin: 0 auto; }
-
-        .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
-        h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 40px 25px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid #1e262f;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 122, 255, 0.2); }
-        .card h3 { font-size: 20px; color: var(--accent); margin-bottom: 15px; }
-        .card p { font-size: 14px; color: var(--text-dim); margin: 0; }
-
-        .booking-container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 24px;
-            max-width: 650px;
-            margin: 0 auto;
-            color: #333;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .full-width { grid-column: span 2; }
-
-        .form-group { margin-bottom: 5px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #666; text-transform: uppercase; }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 15px;
-            background: #f8fafc;
-            transition: 0.3s;
-            box-sizing: border-box;
-        }
-
-        textarea { resize: vertical; min-height: 80px; }
-
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; }
-
-        .cta-button {
-            width: 100%;
-            background: var(--success);
-            color: white;
-            padding: 18px;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-
-        .cta-button:hover { background: #1eb956; transform: scale(1.02); }
-
-        footer { text-align: center; padding: 60px 20px; color: var(--text-dim); background: #020406; border-top: 1px solid #1a222d; }
-
-        @media (max-width: 768px) {
-            .form-grid { grid-template-columns: 1fr; }
-            .full-width { grid-column: span 1; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <a href="#" class="logo">TENERIFE<span>TRANSFERS</span></a>
-    <a href="tel:+34600000000" class="phone-contact">📞 +34 600 000 000</a>
-</header>
+    .hero p { 
+        color: #ffffff; 
+        font-size: 22px; 
+        max-width: 850px; 
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+</style>
 
 <section class="hero">
     <h1>Excelencia en Transporte Privado</h1>
-    <p>Puntualidad, confort y discreción en cada trayecto por la isla de Tenerife.</p>
+    <p>Disfrute de los mejores paisajes de Tenerife mientras le llevamos a su destino con total comodidad.</p>
 </section>
-
-<section class="section">
-    <h2>Nuestros Servicios</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>✈️ Aeropuertos</h3>
-            <p>Recogidas en Tenerife Norte y Sur con seguimiento de vuelo en tiempo real.</p>
-        </div>
-        <div class="card">
-            <h3>🏙️ Interurbanos</h3>
-            <p>Traslados rápidos y cómodos entre cualquier municipio de la isla.</p>
-        </div>
-        <div class="card">
-            <h3>💼 Empresas</h3>
-            <p>Traslados ejecutivos y eventos con la máxima discreción y puntualidad.</p>
-        </div>
-        <div class="card">
-            <h3>🏝️ Excursiones</h3>
-            <p>Visitas privadas personalizadas a los rincones más bellos de Tenerife.</p>
-        </div>
-        <div class="card">
-            <h3>🚐 Grupos VIP</h3>
-            <p>Vehículos de alta capacidad para familias, bodas y traslados grupales.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="reserva" style="background: rgba(255,255,255,0.02)">
-    <h2>Solicitar Reserva</h2>
-    <div class="booking-container">
-        <form id="transferForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
-            <div class="form-grid">
-                <div class="form-group full-width">
-                    <label>Nombre y Apellidos</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre del pasajero principal" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Punto de Origen</label>
-                    <select name="origen" id="origen" required>
-                        <option value="">Seleccione Aeropuerto...</option>
-                        <option value="Aeropuerto Tenerife Sur (TFS)">Aeropuerto Tenerife Sur (TFS)</option>
-                        <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Municipio de Destino</label>
-                    <select name="destino" id="destino" required>
-                        <option value="">Seleccione Municipio...</option>
-                        <option value="Adeje / Costa Adeje">Costa Adeje</option>
-                        <option value="Arona / Playa de las Américas">Playa de las Américas</option>
-                        <option value="Puerto de la Cruz">Puerto de la Cruz</option>
-                        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
-                        <option value="Santiago del Teide / Gigantes">Los Gigantes</option>
-                        <option value="La Laguna">La Laguna</option>
-                        <option value="Guía de Isora">Guía de Isora</option>
-                    </select>
-                </div>
-
-                <div class="form-group full-width">
-                    <label>Fecha y Hora de Recogida</label>
-                    <input type="datetime-local" name="fecha" id="fecha" required>
-                </div>
-
-                <div class="form-group full-width">
-                    <label>Notas Adicionales</label>
-                    <textarea name="notas" id="notas" placeholder="Nº de vuelo, dirección exacta del hotel, equipaje especial..."></textarea>
-                </div>
-            </div>
-
-            <button type="button" class="cta-button" onclick="enviarReserva()">
-                <span>Confirmar por WhatsApp y Email</span>
-            </button>
-        </form>
-    </div>
-</section>
-
-<script>
-    function enviarReserva() {
-        const nombre = document.getElementById('nombre').value;
-        const origen = document.getElementById('origen').value;
-        const destino = document.getElementById('destino').value;
-        const fecha = document.getElementById('fecha').value;
-        const notas = document.getElementById('notas').value || "Ninguna";
-        
-        const telefonoWhatsApp = "34600000000"; // Tu número sin el +
-        
-        if(!nombre || !origen || !destino || !fecha) {
-            alert("Por favor, complete todos los campos requeridos para procesar su reserva.");
-            return;
-        }
-
-        const mensaje = `*SOLICITUD DE TRANSFER*%0A--------------------------%0A*Pasajero:* ${nombre}%0A*Origen:* ${origen}%0A*Destino:* ${destino}%0A*Fecha/Hora:* ${fecha}%0A*Notas:* ${notas}%0A--------------------------%0A_Solicitud enviada desde la web._`;
-        
-        window.open(`https://wa.me/${telefonoWhatsApp}?text=${mensaje}`, '_blank');
-
-        const form = document.getElementById('transferForm');
-        if(!form.action.includes("TU_ID_AQUI")) {
-            form.submit();
-        }
-    }
-</script>
-
-<footer>
-    <p><strong>TENERIFE TRANSFERS PREMIUM</strong></p>
-    <p>Servicio Oficial de Transporte Privado | Disponibilidad 24/7</p>
-    <p style="font-size: 12px; margin-top: 20px; opacity: 0.5;">© 2026 Todos los derechos reservados.</p>
-</footer>
-
-</body>
-</html>

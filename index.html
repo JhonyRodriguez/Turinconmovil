@@ -70,7 +70,6 @@
         h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
         h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
 
-        /* GRID DE SERVICIOS (5 TARJETAS) */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -90,7 +89,6 @@
         .card h3 { font-size: 20px; color: var(--accent); margin-bottom: 15px; }
         .card p { font-size: 14px; color: var(--text-dim); margin: 0; }
 
-        /* FORMULARIO PROFESIONAL */
         .booking-container {
             background: #ffffff;
             padding: 40px;
@@ -107,7 +105,7 @@
         .form-group { margin-bottom: 5px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #666; text-transform: uppercase; }
         
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 14px;
             border: 1px solid #e2e8f0;
@@ -116,9 +114,12 @@
             font-size: 15px;
             background: #f8fafc;
             transition: 0.3s;
+            box-sizing: border-box;
         }
 
-        input:focus, select:focus { outline: none; border-color: var(--primary); background: #fff; }
+        textarea { resize: vertical; min-height: 80px; }
+
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; }
 
         .cta-button {
             width: 100%;
@@ -199,18 +200,16 @@
                 <div class="form-group">
                     <label>Punto de Origen</label>
                     <select name="origen" id="origen" required>
-                        <option value="">Seleccione...</option>
+                        <option value="">Seleccione Aeropuerto...</option>
                         <option value="Aeropuerto Tenerife Sur (TFS)">Aeropuerto Tenerife Sur (TFS)</option>
                         <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
-                        <option value="Hotel / Domicilio">Hotel / Domicilio (Indicar en notas)</option>
-                        <option value="Puerto Santa Cruz">Puerto / Crucero</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>Municipio de Destino</label>
                     <select name="destino" id="destino" required>
-                        <option value="">Seleccione...</option>
+                        <option value="">Seleccione Municipio...</option>
                         <option value="Adeje / Costa Adeje">Costa Adeje</option>
                         <option value="Arona / Playa de las Américas">Playa de las Américas</option>
                         <option value="Puerto de la Cruz">Puerto de la Cruz</option>
@@ -218,13 +217,17 @@
                         <option value="Santiago del Teide / Gigantes">Los Gigantes</option>
                         <option value="La Laguna">La Laguna</option>
                         <option value="Guía de Isora">Guía de Isora</option>
-                        <option value="Otro">Otro (Especificar)</option>
                     </select>
                 </div>
 
                 <div class="form-group full-width">
                     <label>Fecha y Hora de Recogida</label>
                     <input type="datetime-local" name="fecha" id="fecha" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Notas Adicionales</label>
+                    <textarea name="notas" id="notas" placeholder="Nº de vuelo, dirección exacta del hotel, equipaje especial..."></textarea>
                 </div>
             </div>
 
@@ -241,26 +244,21 @@
         const origen = document.getElementById('origen').value;
         const destino = document.getElementById('destino').value;
         const fecha = document.getElementById('fecha').value;
+        const notas = document.getElementById('notas').value || "Ninguna";
         
-        // --- CONFIGURACIÓN ---
         const telefonoWhatsApp = "34600000000"; // Tu número sin el +
         
         if(!nombre || !origen || !destino || !fecha) {
-            alert("Por favor, complete todos los campos para procesar su reserva.");
+            alert("Por favor, complete todos los campos requeridos para procesar su reserva.");
             return;
         }
 
-        // 1. Mensaje para WhatsApp
-        const mensaje = `*SOLICITUD DE TRANSFER*%0A--------------------------%0A*Pasajero:* ${nombre}%0A*Origen:* ${origen}%0A*Destino:* ${destino}%0A*Fecha/Hora:* ${fecha}%0A--------------------------%0A_Solicitud enviada desde la web._`;
+        const mensaje = `*SOLICITUD DE TRANSFER*%0A--------------------------%0A*Pasajero:* ${nombre}%0A*Origen:* ${origen}%0A*Destino:* ${destino}%0A*Fecha/Hora:* ${fecha}%0A*Notas:* ${notas}%0A--------------------------%0A_Solicitud enviada desde la web._`;
         
-        // Abrir WhatsApp
         window.open(`https://wa.me/${telefonoWhatsApp}?text=${mensaje}`, '_blank');
 
-        // 2. Enviar por Formspree (Email)
         const form = document.getElementById('transferForm');
-        if(form.action.includes("TU_ID_AQUI")) {
-            console.log("Nota: Configura tu ID de Formspree para recibir correos.");
-        } else {
+        if(!form.action.includes("TU_ID_AQUI")) {
             form.submit();
         }
     }

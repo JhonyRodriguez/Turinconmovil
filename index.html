@@ -1,251 +1,253 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tenerife Transfers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfers Tenerife Premium | Servicio VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #007aff;
+            --secondary: #0a1118;
+            --bg-dark: #05080a;
+            --card-bg: #12181f;
+            --text-main: #ffffff;
+            --text-dim: #a0aec0;
+            --accent: #00d4ff;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-body{
-    background:#0b0b0b;
-    color:#fff;
-}
+        /* HEADER MODERNO */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(10, 17, 24, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1a222d;
+        }
 
-/* HEADER */
-header{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    padding:15px 40px;
-    z-index:10;
-    font-size:14px;
-}
+        .logo {
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
 
-header .logo{
-    color:#00d4ff;
-    font-weight:bold;
-}
+        .logo span { color: var(--primary); }
 
-header .phone{
-    color:#fff;
-}
+        .phone-contact {
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            background: rgba(0, 122, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+        }
 
-/* HERO */
-.hero{
-    height:60vh;
-   /* background:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;*/
-    display:flex;
-    align-items:center;
-    padding:0 80px;
-    position:relative;
-}
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(5, 8, 10, 0.7), rgba(5, 8, 10, 0.9)), 
+                        url('https://images.unsplash.com/photo-1506197357125-3b943564972e?auto=format&fit=crop&q=80&w=1600') center/cover;
+            border-bottom: 1px solid #1a222d;
+        }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.55);
-}
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            max-width: 900px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
 
-.hero-content{
-    position:relative;
-    max-width:600px;
-}
+        .hero p {
+            color: var(--text-dim);
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
 
-.hero h1{
-    font-size:40px;
-    margin-bottom:15px;
-}
+        .cta {
+            background: var(--primary);
+            color: white;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+        }
 
-.hero p{
-    font-size:14px;
-    margin-bottom:20px;
-    opacity:0.9;
-}
+        .cta:hover {
+            transform: translateY(-2px);
+            background: var(--accent);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
 
-.btn{
-    background:linear-gradient(90deg,#00d4ff,#00ffa2);
-    padding:10px 18px;
-    border:none;
-    color:#000;
-    font-weight:bold;
-    border-radius:6px;
-    cursor:pointer;
-}
+        /* SECCIONES */
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-/* MAIN SECTION */
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:-60px auto 40px auto;
-}
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
 
-/* QUICK BOOKING */
-.booking{
-    display:flex;
-    gap:30px;
-    align-items:flex-start;
-    justify-content:space-between;
-}
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.form{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    width:320px;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #1e262f;
+            transition: transform 0.3s ease;
+        }
 
-.form h2{
-    color:#00ffa2;
-    margin-bottom:15px;
-}
+        .card:hover { transform: translateY(-10px); }
 
-.form input{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    background:#1a1a1a;
-    border:1px solid #333;
-    color:#fff;
-    border-radius:6px;
-}
+        .card h3 { font-size: 24px; margin-bottom: 15px; color: var(--accent); }
+        .card p { color: var(--text-dim); }
 
-.form button{
-    width:100%;
-    padding:10px;
-    background:linear-gradient(90deg,#00d4ff,#00ffa2);
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
-}
+        /* PRICING TABLE */
+        .pricing-container {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #1e262f;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-/* SERVICES */
-.services{
-    flex:1;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 25px;
+            border-bottom: 1px solid #1e262f;
+        }
 
-.card{
-    background:#111;
-    padding:15px;
-    border-radius:10px;
-}
+        .price-row:last-child { border: none; }
+        .price-row span:last-child { font-weight: 700; color: var(--accent); }
 
-.card h3{
-    color:#00ffa2;
-    margin-bottom:10px;
-}
+        /* FORMULARIO */
+        .booking-form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+            display: grid;
+            gap: 15px;
+        }
 
-.card p{
-    font-size:13px;
-    opacity:0.8;
-}
+        .booking-form input {
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+        }
 
-/* RIGHT STATS */
-.stats{
-    background:#111;
-    padding:15px;
-    border-radius:10px;
-    width:200px;
-    text-align:center;
-}
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+            font-size: 14px;
+            border-top: 1px solid #1a222d;
+        }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    font-size:12px;
-    opacity:0.6;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .booking{
-        flex-direction:column;
-    }
-    .services{
-        grid-template-columns:1fr;
-    }
-    header{
-        padding:10px 20px;
-    }
-}
-</style>
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero { padding: 80px 20px; }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">Tenerife Transfers</div>
-    <div class="phone">+34 600 000</div>
+    <div class="logo">TENERIFE<span>TRANSFERS</span></div>
+    <a href="tel:+34600000000" class="phone-contact">📞 +34 600 000 000</a>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Transfers privados en Tenerife sin esperas</h1>
-        <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
-        <button class="btn">Reservar ahora</button>
+    <h1>Transfers privados en Tenerife sin esperas</h1>
+    <p>Viaje con la tranquilidad de un precio cerrado y conductores profesionales.</p>
+    <button class="cta" onclick="document.getElementById('reserva').scrollIntoView();">Reservar mi plaza</button>
+</section>
+
+<section class="section">
+    <h2>Nuestros Servicios</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>✈️ Aeropuertos</h3>
+            <p>Recogidas personalizadas en Tenerife Sur (TFS) y Norte (TFN) con cartel de nombre.</p>
+        </div>
+        <div class="card">
+            <h3>🏝️ Excursiones</h3>
+            <p>Descubre el Teide, Masca o Anaga con chófer privado a tu disposición.</p>
+        </div>
+        <div class="card">
+            <h3>💼 Empresas</h3>
+            <p>Traslados ejecutivos y eventos con la máxima discreción y puntualidad.</p>
+        </div>
     </div>
 </section>
 
-<div class="container">
-
-    <div class="booking">
-
-        <div class="form">
-            <h2>Reserva rápida</h2>
-            <input type="text" placeholder="Origen (Ej: Aeropuerto TFS)">
-            <input type="text" placeholder="Destino (Ej: Costa Adeje)">
-            <input type="text" placeholder="dd/mm/aaaa">
-            <button>Calcular / Reservar</button>
-        </div>
-
-        <div class="services">
-
-            <div class="card">
-                <h3>Servicios</h3>
-            </div>
-
-            <div class="card">
-                <h3>Traslados aeropuerto</h3>
-                <p>Recogida en Tenerife Sur y Norte sin esperas</p>
-            </div>
-
-            <div class="card">
-                <h3>Excursiones privadas</h3>
-                <p>Viajes por toda la isla con conductor</p>
-            </div>
-
-            <div class="card">
-                <h3>Privado</h3>
-                <p>Vehículos exclusivos</p>
-            </div>
-
-            <div class="card">
-                <h3>4.9/5 clientes</h3>
-                <p>Más de 500 valoraciones reales</p>
-            </div>
-
-        </div>
-
+<section class="section" style="background: rgba(255,255,255,0.02)">
+    <h2>Tarifas Fijas</h2>
+    <div class="pricing-container">
+        <div class="price-row"><span>Aeropuerto Sur → Costa Adeje</span> <span>desde 40€</span></div>
+        <div class="price-row"><span>Aeropuerto Sur → Los Gigantes</span> <span>desde 65€</span></div>
+        <div class="price-row"><span>Aeropuerto Norte → Santa Cruz</span> <span>desde 30€</span></div>
+        <div class="price-row"><span>Aeropuerto Norte → Puerto de la Cruz</span> <span>desde 45€</span></div>
     </div>
+</section>
 
-</div>
+<section class="section" id="reserva">
+    <h2 style="margin-bottom: 10px;">Reserva tu Transfer</h2>
+    <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;">Recibirás confirmación inmediata vía email.</p>
+    <div class="booking-form">
+        <input type="text" placeholder="Nombre completo">
+        <input type="email" placeholder="Email de contacto">
+        <input type="text" placeholder="Origen (Hotel, Aeropuerto...)">
+        <input type="text" placeholder="Destino">
+        <input type="datetime-local" placeholder="Fecha y hora">
+        <button class="cta">Confirmar Reserva</button>
+    </div>
+</section>
 
 <footer>
-    © 2026 Tenerife Transfers
+    © 2026 Tenerife Transfers Premium - Licencia VTC Oficial<br>
+    Soporte 24/7 en la isla de Tenerife.
 </footer>
 
 </body>

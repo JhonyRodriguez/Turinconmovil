@@ -13,12 +13,16 @@ body {
   color: #fff;
 }
 
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
   background: #000;
   border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -26,11 +30,11 @@ header {
   font-size: 20px;
 }
 
+/* HERO */
 .hero {
-  padding: 80px 40px;
-  text-align: left;
-  background: linear-gradient(to right, #000, #111);
-  background: url('imagen-tenerife.jpg') center/cover no-repeat;
+  padding: 100px 40px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1589394815804-964ed0be2eb5') center/cover no-repeat;
 }
 
 .hero h1 {
@@ -43,6 +47,7 @@ header {
   margin: 20px 0;
 }
 
+/* BOTÓN */
 .cta {
   background: #00c2ff;
   color: #000;
@@ -52,10 +57,20 @@ header {
   cursor: pointer;
 }
 
+.cta:hover {
+  opacity: 0.8;
+}
+
+/* SECCIONES */
 .section {
   padding: 60px 40px;
 }
 
+h2 {
+  font-size: 32px;
+}
+
+/* CARDS */
 .cards {
   display: flex;
   gap: 20px;
@@ -68,18 +83,14 @@ header {
   border-radius: 10px;
   flex: 1;
   min-width: 250px;
+  transition: transform 0.3s;
 }
 
-.card h3 {
-  margin-top: 0;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.pricing {
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-}
-
+/* FORMULARIO */
 .form {
   display: flex;
   flex-direction: column;
@@ -91,8 +102,11 @@ header {
   padding: 12px;
   border: none;
   border-radius: 5px;
+  background: #1a1a1a;
+  color: white;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -110,12 +124,31 @@ footer {
   <div>+34 600 000 000</div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Transfers privados en Tenerife sin esperas</h1>
-  <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
-  <button class="cta">Reservar ahora</button>
+  <h1>Tu transfer en Tenerife en 2 clics</h1>
+  <p>Reserva rápida, precio fijo y sin esperas. Servicio premium 24/7.</p>
+
+  <button class="cta" onclick="window.location.href='https://wa.me/34600000000'">
+    Reservar por WhatsApp
+  </button>
 </section>
 
+<!-- RESERVA -->
+<section class="section">
+  <h2>Reserva rápida</h2>
+
+  <div class="form">
+    <input placeholder="📍 Origen (Ej: Aeropuerto TFS)">
+    <input placeholder="🏁 Destino (Ej: Costa Adeje)">
+    <input type="date">
+    <button class="cta" onclick="alert('Reserva enviada')">
+      Calcular / Reservar
+    </button>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
 <section class="section">
   <h2>Servicios</h2>
   <div class="cards">
@@ -134,30 +167,31 @@ footer {
   </div>
 </section>
 
+<!-- PRECIOS -->
 <section class="section">
   <h2>Precios orientativos</h2>
-  <div class="pricing">
+  <div class="card">
     <p>Aeropuerto → Costa Adeje desde 40€</p>
     <p>Aeropuerto → Playa de las Américas desde 40€</p>
     <p>Aeropuerto → Santa Cruz desde 120€</p>
   </div>
 </section>
 
+<!-- CONFIANZA -->
 <section class="section">
-  <h2>Reserva tu transfer</h2>
-  <div class="form">
-    <input placeholder="Nombre">
-    <input placeholder="Email">
-    <input placeholder="Origen">
-    <input placeholder="Destino">
-    <input placeholder="Fecha">
-    <button class="cta">Confirmar reserva</button>
-  </div>
+  <h2>Más de 500 clientes satisfechos</h2>
+  <p>⭐ 4.9/5 en valoraciones reales</p>
 </section>
 
 <footer>
   © 2026 Tenerife Transfers - Servicio Premium
 </footer>
+
+<!-- BOTÓN WHATSAPP -->
+<a href="https://wa.me/34600000000"
+style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;text-decoration:none;font-size:20px;">
+💬
+</a>
 
 </body>
 </html>

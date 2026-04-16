@@ -56,12 +56,11 @@
 
         .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* --- SECCIÓN HERO CON IMAGEN PREMIUM --- */
+        /* --- SECCIÓN HERO --- */
         .hero {
             position: relative;
             padding: 180px 20px;
             text-align: center;
-            /* IMAGEN TURÍSTICA PROFESIONAL */
             background-image: url('https://images.unsplash.com/photo-1552525164-3258c703080e?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -74,7 +73,6 @@
             min-height: 450px;
         }
 
-        /* Capa de contraste para legibilidad */
         .hero::before {
             content: '';
             position: absolute;
@@ -86,29 +84,18 @@
             z-index: 1;
         }
 
-        .hero h1, .hero p {
+        .hero h1 { 
             position: relative;
             z-index: 2;
-            margin: 0 auto;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.7);
-        }
-
-        .hero h1 { 
             font-size: clamp(34px, 7vw, 60px); 
             margin-bottom: 15px; 
             font-weight: 700; 
             letter-spacing: -1px;
             color: #ffffff;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.7);
         }
 
-        .hero p { 
-            color: #ffffff; 
-            font-size: 22px; 
-            max-width: 800px; 
-            font-weight: 400;
-        }
-
-        /* --- RESTO DE LA PÁGINA --- */
+        /* --- SECCIÓN SERVICIOS --- */
         .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
         h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
@@ -129,9 +116,31 @@
         }
 
         .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { font-size: 20px; color: var(--accent); margin-bottom: 15px; }
-        .card p { font-size: 14px; color: var(--text-dim); }
 
+        /* --- NUEVO BLOQUE LLAMATIVO (ENTRE SERVICIOS Y RESERVA) --- */
+        .highlight-banner {
+            background: linear-gradient(90deg, rgba(0,122,255,0.1) 0%, rgba(0,212,255,0.05) 100%);
+            border-top: 1px solid rgba(0,122,255,0.3);
+            border-bottom: 1px solid rgba(0,122,255,0.3);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .highlight-banner p {
+            font-size: clamp(20px, 4vw, 32px);
+            font-weight: 600;
+            color: #ffffff;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.4;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- SECCIÓN RESERVA --- */
         .booking-container {
             background: #ffffff;
             padding: 40px;
@@ -170,8 +179,6 @@
             transition: 0.3s;
         }
 
-        .cta-button:hover { background: #1eb956; transform: scale(1.02); }
-
         footer { text-align: center; padding: 60px 20px; color: var(--text-dim); background: #020406; border-top: 1px solid #1a222d; }
 
         @media (max-width: 768px) {
@@ -189,7 +196,6 @@
 
 <section class="hero">
     <h1>Excelencia en Transporte Privado</h1>
-    <p>Disfrute de los mejores paisajes de Tenerife mientras le llevamos a su destino con total comodidad.</p>
 </section>
 
 <section class="section">
@@ -203,7 +209,11 @@
     </div>
 </section>
 
-<section class="section" id="reserva" style="background: rgba(255,255,255,0.02)">
+<div class="highlight-banner">
+    <p>"Puntualidad, confort y discreción en cada trayecto por la isla de Tenerife."</p>
+</div>
+
+<section class="section" id="reserva">
     <h2>Solicitar Reserva</h2>
     <div class="booking-container">
         <form id="transferForm">
@@ -236,7 +246,7 @@
                 </div>
                 <div class="form-group full-width">
                     <label>Notas Adicionales</label>
-                    <textarea id="notas" placeholder="Nº de vuelo, equipaje..."></textarea>
+                    <textarea id="notas" placeholder="Nº de vuelo, dirección exacta..."></textarea>
                 </div>
             </div>
             <button type="button" class="cta-button" onclick="enviarWhatsApp()">

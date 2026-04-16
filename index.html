@@ -28,37 +28,41 @@ header {
 .logo {
   font-weight: bold;
   font-size: 20px;
+  color: #00c2ff;
 }
 
 /* HERO */
 .hero {
   padding: 100px 40px;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-              url('https://images.unsplash.com/photo-1589394815804-964ed0be2eb5') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1593351415075-3bac9f45c877') center/cover no-repeat;
 }
 
 .hero h1 {
   font-size: 48px;
   max-width: 600px;
+  color: #ffffff;
 }
 
 .hero p {
-  color: #aaa;
+  color: #ddd;
   margin: 20px 0;
+  font-size: 18px;
 }
 
-/* BOTÓN */
+/* BOTONES */
 .cta {
-  background: #00c2ff;
+  background: linear-gradient(45deg, #00c2ff, #00ff9d);
   color: #000;
   padding: 15px 30px;
   border: none;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .cta:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* SECCIONES */
@@ -68,6 +72,7 @@ header {
 
 h2 {
   font-size: 32px;
+  color: #00ff9d;
 }
 
 /* CARDS */
@@ -78,16 +83,18 @@ h2 {
 }
 
 .card {
-  background: #111;
+  background: linear-gradient(145deg, #111, #1a1a1a);
   padding: 20px;
   border-radius: 10px;
   flex: 1;
   min-width: 250px;
   transition: transform 0.3s;
+  border: 1px solid #222;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  border-color: #00c2ff;
 }
 
 /* FORMULARIO */
@@ -104,6 +111,7 @@ h2 {
   border-radius: 5px;
   background: #1a1a1a;
   color: white;
+  border: 1px solid #333;
 }
 
 /* FOOTER */
@@ -126,11 +134,11 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Tu transfer en Tenerife en 2 clics</h1>
-  <p>Reserva rápida, precio fijo y sin esperas. Servicio premium 24/7.</p>
+  <h1>Transfers privados en Tenerife sin esperas</h1>
+  <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
 
   <button class="cta" onclick="window.location.href='https://wa.me/34600000000'">
-    Reservar por WhatsApp
+    Reservar ahora
   </button>
 </section>
 

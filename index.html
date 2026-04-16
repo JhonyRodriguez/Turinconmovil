@@ -17,221 +17,172 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  align-items: center;
+  padding: 15px 40px;
   background: #000;
   border-bottom: 1px solid #222;
-  position: sticky;
-  top: 0;
 }
 
+/* CENTRADO GLOBAL */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* LOGO */
 .logo {
   font-weight: bold;
-  color: #00c2ff;
+  font-size: 20px;
 }
 
-/* HERO */
+/* HERO CENTRADO */
 .hero {
-  padding: 100px 40px;
+  padding: 60px 20px;
+  text-align: center;
   background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21') center/cover no-repeat;
+    linear-gradient(to right, #000, #111),
+    url('imagen-tenerife.jpg') center/cover no-repeat;
 }
 
-/* LAYOUT */
-.container {
+.hero h1 {
+  font-size: 42px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero p {
+  color: #aaa;
+  margin: 15px auto;
+  max-width: 600px;
+}
+
+.cta {
+  background: #00c2ff;
+  color: #000;
+  padding: 14px 28px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* SECCIONES MÁS COMPACTAS */
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* CARDS CENTRADAS */
+.cards {
   display: flex;
-  gap: 40px;
-  padding: 60px 40px;
+  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.left, .right {
-  flex: 1;
-  min-width: 300px;
-}
-
-/* CARDS */
 .card {
   background: #111;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #222;
-  margin-bottom: 20px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 300px;
+  text-align: center;
 }
 
-/* FORM */
-.form select, .form input {
-  width: 100%;
+/* PRICING CENTRADO */
+.pricing {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* FORM CENTRADO */
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto 0 auto;
+}
+
+.form input {
   margin-bottom: 10px;
   padding: 12px;
-  background: #1a1a1a;
-  color: white;
   border: none;
   border-radius: 5px;
 }
 
-/* BOTÓN */
-.cta {
-  background: linear-gradient(45deg, #00c2ff, #00ff9d);
-  color: #000;
-  padding: 15px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-}
-
-/* PRECIO */
-#precio {
-  font-size: 24px;
-  color: #00ff9d;
-  margin-top: 10px;
-}
-
-/* FOOTER */
+/* FOOTER COMPACTO */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   background: #000;
   color: #777;
+  margin-top: 20px;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
   <div class="logo">Tenerife Transfers</div>
-  <div>+34 685 529 924</div>
+  <div>+34 600 000 000</div>
 </header>
 
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
   <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
+  <button class="cta">Reservar ahora</button>
 </section>
 
-<section class="container">
-
-  <div class="left">
-
+<section class="section">
+  <h2>Servicios</h2>
+  <div class="cards">
     <div class="card">
-      <h2>Precios base desde aeropuertos</h2>
-      <p>Los precios incluyen servicio + distancia cliente</p>
+      <h3>✈️ Aeropuerto</h3>
+      <p>Recogida en Tenerife Sur y Norte</p>
     </div>
-
     <div class="card">
-      <h2>Reserva rápida</h2>
-
-      <div class="form">
-
-        <!-- SOLO TFN Y TFS -->
-        <select id="origen">
-          <option value="TFS">Aeropuerto Sur (TFS)</option>
-          <option value="TFN">Aeropuerto Norte (TFN)</option>
-        </select>
-
-        <select id="destino">
-          <option value="">Selecciona destino</option>
-          <option value="Costa Adeje">Costa Adeje</option>
-          <option value="Playa de las Américas">Playa de las Américas</option>
-          <option value="Los Cristianos">Los Cristianos</option>
-          <option value="Puerto de la Cruz">Puerto de la Cruz</option>
-          <option value="Santa Cruz">Santa Cruz</option>
-        </select>
-
-        <input type="date" id="fecha">
-
-        <button class="cta" onclick="calcular()">Calcular precio</button>
-
-        <div id="precio"></div>
-
-        <button class="cta" onclick="reservar()">Reservar por WhatsApp</button>
-
-      </div>
+      <h3>🏝️ Excursiones</h3>
+      <p>Viajes por toda la isla</p>
     </div>
-
+    <div class="card">
+      <h3>🚐 Privado</h3>
+      <p>Vehículos exclusivos</p>
+    </div>
   </div>
+</section>
 
-  <div class="right">
-
-    <div class="card">✈️ Traslados aeropuerto sin esperas</div>
-    <div class="card">🏝️ Excursiones privadas por la isla</div>
-    <div class="card">💶 Precio fijo sin sorpresas</div>
-    <div class="card">⭐ 4.9/5 clientes satisfechos</div>
-
+<section class="section">
+  <h2>Precios orientativos</h2>
+  <div class="pricing">
+    <p>Aeropuerto → Costa Adeje desde 40€</p>
+    <p>Aeropuerto → Playa de las Américas desde 40€</p>
+    <p>Aeropuerto → Santa Cruz desde 120€</p>
   </div>
+</section>
 
+<section class="section">
+  <h2>Reserva tu transfer</h2>
+  <div class="form">
+    <input placeholder="Nombre">
+    <input placeholder="Email">
+    <input placeholder="Origen">
+    <input placeholder="Destino">
+    <input placeholder="Fecha">
+    <button class="cta">Confirmar reserva</button>
+  </div>
 </section>
 
 <footer>
-  © 2026 Tenerife Transfers
+  © 2026 Tenerife Transfers - Servicio Premium
 </footer>
-
-<a href="https://wa.me/34685529924"
-style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;">
-💬
-</a>
-
-<script>
-
-/* BASE REAL */
-const tarifaKm = 1.2;
-const baseServicio = 8;
-
-/* DESDE SANTA CRUZ (REAL IMPORTANTE) */
-const distanciaBase = {
-  TFS: 60,  // Santa Cruz → Aeropuerto Sur
-  TFN: 15   // Santa Cruz → Aeropuerto Norte
-};
-
-/* DISTANCIAS CLIENTE */
-const destinosKm = {
-  "Costa Adeje": 65,
-  "Playa de las Américas": 60,
-  "Los Cristianos": 55,
-  "Puerto de la Cruz": 35,
-  "Santa Cruz": 0
-};
-
-function calcular() {
-
-  let origen = document.getElementById("origen").value;
-  let destino = document.getElementById("destino").value;
-
-  if (!destino) {
-    document.getElementById("precio").innerHTML = "Selecciona un destino";
-    return;
-  }
-
-  let kmTotal = distanciaBase[origen] + destinosKm[destino];
-
-  let precio = Math.round((kmTotal * tarifaKm) + baseServicio);
-
-  document.getElementById("precio").innerHTML =
-    "Distancia operativa: " + kmTotal + " km<br>" +
-    "Precio final: " + precio + "€";
-}
-
-function reservar() {
-
-  let origen = document.getElementById("origen").value;
-  let destino = document.getElementById("destino").value;
-  let fecha = document.getElementById("fecha").value;
-
-  let kmTotal = distanciaBase[origen] + destinosKm[destino];
-  let precio = Math.round((kmTotal * tarifaKm) + baseServicio);
-
-  let mensaje = `Transfer Tenerife:
-Origen: ${origen}
-Destino: ${destino}
-Fecha: ${fecha}
-Km operativos: ${kmTotal}
-Precio final: ${precio}€`;
-
-  window.open("https://wa.me/34685529924?text=" + encodeURIComponent(mensaje), "_blank");
-}
-
-</script>
 
 </body>
 </html>

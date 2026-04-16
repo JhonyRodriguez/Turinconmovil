@@ -39,8 +39,10 @@ header {
 .hero {
   padding: 140px 20px;
   text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-              url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+    url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80')
+    center/cover no-repeat;
 }
 
 .hero h1 {
@@ -83,18 +85,13 @@ header {
   padding: 20px;
   border-radius: 14px;
   margin-bottom: 20px;
-  transition: 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
 }
 
 /* PRECIOS */
 .card p {
   display: flex;
   justify-content: space-between;
-  padding: 6px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   margin: 0;
 }
@@ -111,7 +108,7 @@ label {
   margin-bottom: 4px;
 }
 
-.form select, .form input {
+select, input {
   width: 100%;
   padding: 12px;
   background: rgba(0,0,0,0.4);
@@ -132,13 +129,11 @@ label {
   width: 100%;
   border-radius: 8px;
   margin-top: 10px;
-  transition: 0.3s;
-  box-shadow: 0 10px 25px rgba(0,255,157,0.15);
+  transition: 0.2s;
 }
 
 .cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(0,255,157,0.25);
 }
 
 /* PRECIO */
@@ -151,17 +146,8 @@ label {
 
 /* RIGHT CARDS */
 .right .card i {
-  font-size: 18px;
   margin-right: 8px;
   color: #00c2ff;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  color: #777;
 }
 
 /* WHATSAPP */
@@ -175,13 +161,11 @@ footer {
   border-radius: 50%;
   font-size: 20px;
   text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h1 { font-size: 32px; }
-  header { flex-direction: column; gap: 10px; }
 }
 </style>
 
@@ -196,10 +180,10 @@ footer {
 
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
-  <p>Servicio premium desde el aeropuerto con precio cerrado y atención inmediata</p>
+  <p>Servicio premium desde aeropuerto con precio cerrado y recogida directa</p>
 
   <div class="badge">
-    ⭐ 4.9/5 valoraciones · 🚖 Servicio oficial Tenerife · 💳 Sin costes ocultos
+    ⭐ 4.9/5 valoraciones · 🚖 Base operativa Santa Cruz · 💳 Precio final garantizado
   </div>
 </section>
 
@@ -211,51 +195,49 @@ footer {
     <div class="card">
       <h2>Precios orientativos</h2>
 
-      <p><span>Costa Adeje</span><span id="p-adeje">40€</span></p>
-      <p><span>Playa de las Américas</span><span id="p-am">40€</span></p>
-      <p><span>Los Cristianos</span><span id="p-cris">35€</span></p>
-      <p><span>Puerto de la Cruz</span><span id="p-puerto">110€</span></p>
-      <p><span>Santa Cruz</span><span id="p-santa">120€</span></p>
+      <p><span>Costa Adeje</span><span>40€ - 60€</span></p>
+      <p><span>Playa de las Américas</span><span>40€ - 60€</span></p>
+      <p><span>Los Cristianos</span><span>35€ - 55€</span></p>
+      <p><span>Puerto de la Cruz</span><span>100€ - 130€</span></p>
+      <p><span>Santa Cruz</span><span>20€ - 35€</span></p>
 
     </div>
 
     <div class="card">
+
       <h2>Reserva rápida</h2>
 
-      <div class="form">
-
-        <div class="form-group">
-          <label>Origen</label>
-          <select id="origen">
-            <option value="TFS">Aeropuerto Sur (TFS)</option>
-            <option value="TFN">Aeropuerto Norte (TFN)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Destino</label>
-          <select id="destino">
-            <option value="">Selecciona destino</option>
-            <option value="Costa Adeje">Costa Adeje</option>
-            <option value="Playa de las Américas">Playa de las Américas</option>
-            <option value="Los Cristianos">Los Cristianos</option>
-            <option value="Puerto de la Cruz">Puerto de la Cruz</option>
-            <option value="Santa Cruz">Santa Cruz</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Fecha</label>
-          <input type="date" id="fecha">
-        </div>
-
-        <button class="cta" onclick="calcular()">Calcular precio</button>
-
-        <div id="precio"></div>
-
-        <button class="cta" onclick="reservar()">Reservar por WhatsApp</button>
-
+      <div class="form-group">
+        <label>Origen</label>
+        <select id="origen">
+          <option value="TFS">Aeropuerto Sur (TFS)</option>
+          <option value="TFN">Aeropuerto Norte (TFN)</option>
+        </select>
       </div>
+
+      <div class="form-group">
+        <label>Destino</label>
+        <select id="destino">
+          <option value="">Selecciona destino</option>
+          <option value="Costa Adeje">Costa Adeje</option>
+          <option value="Playa de las Américas">Playa de las Américas</option>
+          <option value="Los Cristianos">Los Cristianos</option>
+          <option value="Puerto de la Cruz">Puerto de la Cruz</option>
+          <option value="Santa Cruz">Santa Cruz</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Fecha</label>
+        <input type="date" id="fecha">
+      </div>
+
+      <button class="cta" onclick="calcular()">Calcular precio</button>
+
+      <div id="precio"></div>
+
+      <button class="cta" onclick="reservar()">Reservar por WhatsApp</button>
+
     </div>
 
   </div>
@@ -272,10 +254,6 @@ footer {
 
 </section>
 
-<footer>
-  © 2026 Tenerife Transfers
-</footer>
-
 <a class="whatsapp" href="https://wa.me/34685529924" target="_blank">
   <i class="fa fa-whatsapp"></i>
 </a>
@@ -283,18 +261,18 @@ footer {
 <script>
 const precios = {
   TFS: {
-    "Costa Adeje": 40,
-    "Playa de las Américas": 40,
-    "Los Cristianos": 35,
+    "Costa Adeje": 45,
+    "Playa de las Américas": 45,
+    "Los Cristianos": 40,
     "Puerto de la Cruz": 110,
-    "Santa Cruz": 120
+    "Santa Cruz": 95
   },
   TFN: {
-    "Costa Adeje": 95,
-    "Playa de las Américas": 95,
-    "Los Cristianos": 90,
-    "Puerto de la Cruz": 35,
-    "Santa Cruz": 25
+    "Costa Adeje": 85,
+    "Playa de las Américas": 85,
+    "Los Cristianos": 80,
+    "Puerto de la Cruz": 40,
+    "Santa Cruz": 30
   }
 };
 
@@ -302,10 +280,15 @@ function calcular() {
   let origen = document.getElementById("origen").value;
   let destino = document.getElementById("destino").value;
 
+  if (!destino) {
+    document.getElementById("precio").innerHTML = "Selecciona un destino";
+    return;
+  }
+
   let precio = precios[origen][destino];
 
   document.getElementById("precio").innerHTML =
-    precio ? "Precio estimado: " + precio + "€" : "Selecciona origen y destino";
+    "Precio final: " + precio + "€";
 }
 
 function reservar() {
@@ -315,7 +298,11 @@ function reservar() {
 
   let precio = precios[origen][destino];
 
-  let mensaje = `Hola, quiero reservar un transfer desde ${origen} a ${destino} el día ${fecha}. Precio estimado: ${precio}€`;
+  let mensaje = `Reserva transfer Tenerife:
+Origen: ${origen}
+Destino: ${destino}
+Fecha: ${fecha}
+Precio: ${precio}€`;
 
   window.open("https://wa.me/34685529924?text=" + encodeURIComponent(mensaje), "_blank");
 }

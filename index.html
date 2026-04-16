@@ -3,185 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transfers Tenerife Premium</title>
+<title>Tenerife Transfers</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0b0b0b;
-  color: #fff;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
 }
 
 /* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: #000;
-  border-bottom: 1px solid #222;
+header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    z-index:10;
+    font-size:14px;
 }
 
-/* CENTRADO GLOBAL */
-section {
-  max-width: 1100px;
-  margin: 0 auto;
+header .logo{
+    color:#00d4ff;
+    font-weight:bold;
 }
 
-/* LOGO */
-.logo {
-  font-weight: bold;
-  font-size: 20px;
+header .phone{
+    color:#fff;
 }
 
-/* HERO CENTRADO */
-.hero {
-  padding: 60px 20px;
-  text-align: center;
-  background:
-    linear-gradient(to right, #000, #111),
-    url('imagen-tenerife.jpg') center/cover no-repeat;
+/* HERO */
+.hero{
+    height:60vh;
+    background:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    padding:0 80px;
+    position:relative;
 }
 
-.hero h1 {
-  font-size: 42px;
-  max-width: 800px;
-  margin: 0 auto;
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.55);
 }
 
-.hero p {
-  color: #aaa;
-  margin: 15px auto;
-  max-width: 600px;
+.hero-content{
+    position:relative;
+    max-width:600px;
 }
 
-.cta {
-  background: #00c2ff;
-  color: #000;
-  padding: 14px 28px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 15px;
+.hero h1{
+    font-size:40px;
+    margin-bottom:15px;
 }
 
-/* SECCIONES MÁS COMPACTAS */
-.section {
-  padding: 40px 20px;
-  text-align: center;
+.hero p{
+    font-size:14px;
+    margin-bottom:20px;
+    opacity:0.9;
 }
 
-/* CARDS CENTRADAS */
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+.btn{
+    background:linear-gradient(90deg,#00d4ff,#00ffa2);
+    padding:10px 18px;
+    border:none;
+    color:#000;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-.card {
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;
-  min-width: 220px;
-  max-width: 300px;
-  text-align: center;
+/* MAIN SECTION */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:-60px auto 40px auto;
 }
 
-/* PRICING CENTRADO */
-.pricing {
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
-  text-align: left;
-  margin-top: 20px;
+/* QUICK BOOKING */
+.booking{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+    justify-content:space-between;
 }
 
-/* FORM CENTRADO */
-.form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: 20px auto 0 auto;
+.form{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    width:320px;
 }
 
-.form input {
-  margin-bottom: 10px;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
+.form h2{
+    color:#00ffa2;
+    margin-bottom:15px;
 }
 
-/* FOOTER COMPACTO */
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #000;
-  color: #777;
-  margin-top: 20px;
+.form input{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    background:#1a1a1a;
+    border:1px solid #333;
+    color:#fff;
+    border-radius:6px;
+}
+
+.form button{
+    width:100%;
+    padding:10px;
+    background:linear-gradient(90deg,#00d4ff,#00ffa2);
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SERVICES */
+.services{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.card{
+    background:#111;
+    padding:15px;
+    border-radius:10px;
+}
+
+.card h3{
+    color:#00ffa2;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:13px;
+    opacity:0.8;
+}
+
+/* RIGHT STATS */
+.stats{
+    background:#111;
+    padding:15px;
+    border-radius:10px;
+    width:200px;
+    text-align:center;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:12px;
+    opacity:0.6;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .booking{
+        flex-direction:column;
+    }
+    .services{
+        grid-template-columns:1fr;
+    }
+    header{
+        padding:10px 20px;
+    }
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Tenerife Transfers</div>
-  <div>+34 600 000 000</div>
+    <div class="logo">Tenerife Transfers</div>
+    <div class="phone">+34 600 000</div>
 </header>
 
 <section class="hero">
-  <h1>Transfers privados en Tenerife sin esperas</h1>
-  <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
-  <button class="cta">Reservar ahora</button>
+    <div class="hero-content">
+        <h1>Transfers privados en Tenerife sin esperas</h1>
+        <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
+        <button class="btn">Reservar ahora</button>
+    </div>
 </section>
 
-<section class="section">
-  <h2>Servicios</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>✈️ Aeropuerto</h3>
-      <p>Recogida en Tenerife Sur y Norte</p>
-    </div>
-    <div class="card">
-      <h3>🏝️ Excursiones</h3>
-      <p>Viajes por toda la isla</p>
-    </div>
-    <div class="card">
-      <h3>🚐 Privado</h3>
-      <p>Vehículos exclusivos</p>
-    </div>
-  </div>
-</section>
+<div class="container">
 
-<section class="section">
-  <h2>Precios orientativos</h2>
-  <div class="pricing">
-    <p>Aeropuerto → Costa Adeje desde 40€</p>
-    <p>Aeropuerto → Playa de las Américas desde 40€</p>
-    <p>Aeropuerto → Santa Cruz desde 120€</p>
-  </div>
-</section>
+    <div class="booking">
 
-<section class="section">
-  <h2>Reserva tu transfer</h2>
-  <div class="form">
-    <input placeholder="Nombre">
-    <input placeholder="Email">
-    <input placeholder="Origen">
-    <input placeholder="Destino">
-    <input placeholder="Fecha">
-    <button class="cta">Confirmar reserva</button>
-  </div>
-</section>
+        <div class="form">
+            <h2>Reserva rápida</h2>
+            <input type="text" placeholder="Origen (Ej: Aeropuerto TFS)">
+            <input type="text" placeholder="Destino (Ej: Costa Adeje)">
+            <input type="text" placeholder="dd/mm/aaaa">
+            <button>Calcular / Reservar</button>
+        </div>
+
+        <div class="services">
+
+            <div class="card">
+                <h3>Servicios</h3>
+            </div>
+
+            <div class="card">
+                <h3>Traslados aeropuerto</h3>
+                <p>Recogida en Tenerife Sur y Norte sin esperas</p>
+            </div>
+
+            <div class="card">
+                <h3>Excursiones privadas</h3>
+                <p>Viajes por toda la isla con conductor</p>
+            </div>
+
+            <div class="card">
+                <h3>Privado</h3>
+                <p>Vehículos exclusivos</p>
+            </div>
+
+            <div class="card">
+                <h3>4.9/5 clientes</h3>
+                <p>Más de 500 valoraciones reales</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <footer>
-  © 2026 Tenerife Transfers - Servicio Premium
+    © 2026 Tenerife Transfers
 </footer>
 
 </body>

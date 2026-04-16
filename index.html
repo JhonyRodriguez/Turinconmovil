@@ -22,12 +22,10 @@ header {
   border-bottom: 1px solid #222;
   position: sticky;
   top: 0;
-  z-index: 1000;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 20px;
   color: #00c2ff;
 }
 
@@ -36,16 +34,6 @@ header {
   padding: 100px 40px;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
               url('https://images.unsplash.com/photo-1605559424843-9e4c228c1a3b') center/cover no-repeat;
-}
-
-.hero h1 {
-  font-size: 48px;
-  max-width: 600px;
-}
-
-.hero p {
-  color: #ddd;
-  margin: 20px 0;
 }
 
 /* LAYOUT */
@@ -61,21 +49,24 @@ header {
   min-width: 300px;
 }
 
-/* FORM */
-.form {
+/* CARDS */
+.card {
   background: #111;
   padding: 20px;
   border-radius: 10px;
+  border: 1px solid #222;
+  margin-bottom: 20px;
 }
 
+/* FORM */
 .form select, .form input {
   width: 100%;
   margin-bottom: 10px;
   padding: 12px;
-  border: none;
-  border-radius: 5px;
   background: #1a1a1a;
   color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 /* BOTÓN */
@@ -89,22 +80,11 @@ header {
   width: 100%;
 }
 
-.cta:hover {
-  opacity: 0.9;
-}
-
-/* CARDS */
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.card {
-  background: linear-gradient(145deg, #111, #1a1a1a);
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #222;
+/* PRECIO */
+#precio {
+  font-size: 24px;
+  color: #00ff9d;
+  margin-top: 10px;
 }
 
 /* FOOTER */
@@ -122,78 +102,80 @@ footer {
 
 <header>
   <div class="logo">Tenerife Transfers</div>
-  <div>+34 600 000 000</div>
+  <div>+34 685 529 924</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
   <p>Desde el aeropuerto a tu destino con total comodidad y precio cerrado.</p>
 </section>
 
-<!-- CONTENIDO PRINCIPAL -->
 <section class="container">
 
-  <!-- IZQUIERDA (FORMULARIO) -->
+  <!-- IZQUIERDA -->
   <div class="left">
-    <h2>Reserva rápida</h2>
 
-    <div class="form">
-      <select>
-        <option>📍 Origen</option>
-        <option>Aeropuerto Tenerife Sur (TFS)</option>
-        <option>Aeropuerto Tenerife Norte (TFN)</option>
-        <option>Costa Adeje</option>
-        <option>Playa de las Américas</option>
-        <option>Los Cristianos</option>
-        <option>Puerto de la Cruz</option>
-        <option>Santa Cruz</option>
-        <option>La Laguna</option>
-        <option>Los Gigantes</option>
-      </select>
-
-      <select>
-        <option>🏁 Destino</option>
-        <option>Aeropuerto Tenerife Sur (TFS)</option>
-        <option>Aeropuerto Tenerife Norte (TFN)</option>
-        <option>Costa Adeje</option>
-        <option>Playa de las Américas</option>
-        <option>Los Cristianos</option>
-        <option>Puerto de la Cruz</option>
-        <option>Santa Cruz</option>
-        <option>La Laguna</option>
-        <option>Los Gigantes</option>
-      </select>
-
-      <input type="date">
-
-      <button class="cta">Calcular / Reservar</button>
+    <!-- PRECIOS -->
+    <div class="card">
+      <h2>Precios desde Aeropuerto Sur (TFS)</h2>
+      <p>Costa Adeje → 40€</p>
+      <p>Playa de las Américas → 40€</p>
+      <p>Los Cristianos → 35€</p>
+      <p>Puerto de la Cruz → 110€</p>
+      <p>Santa Cruz → 120€</p>
     </div>
+
+    <!-- FORMULARIO -->
+    <div class="card">
+      <h2>Reserva rápida</h2>
+
+      <div class="form">
+        <select id="origen">
+          <option value="TFS">Aeropuerto Tenerife Sur (TFS)</option>
+        </select>
+
+        <select id="destino">
+          <option value="">Selecciona destino</option>
+          <option value="Costa Adeje">Costa Adeje</option>
+          <option value="Playa de las Américas">Playa de las Américas</option>
+          <option value="Los Cristianos">Los Cristianos</option>
+          <option value="Puerto de la Cruz">Puerto de la Cruz</option>
+          <option value="Santa Cruz">Santa Cruz</option>
+        </select>
+
+        <input type="date" id="fecha">
+
+        <button class="cta" onclick="calcular()">Calcular precio</button>
+
+        <div id="precio"></div>
+
+        <button class="cta" onclick="reservar()">Reservar por WhatsApp</button>
+      </div>
+    </div>
+
   </div>
 
-  <!-- DERECHA (INFO) -->
+  <!-- DERECHA -->
   <div class="right">
 
-    <div class="cards">
-      <div class="card">
-        <h3>✈️ Traslados aeropuerto</h3>
-        <p>Recogida en Tenerife Sur y Norte sin esperas</p>
-      </div>
+    <div class="card">
+      <h3>✈️ Traslados aeropuerto</h3>
+      <p>Recogida sin esperas en Tenerife Sur</p>
+    </div>
 
-      <div class="card">
-        <h3>🏝️ Excursiones privadas</h3>
-        <p>Viajes por toda la isla con conductor</p>
-      </div>
+    <div class="card">
+      <h3>🏝️ Excursiones privadas</h3>
+      <p>Viajes personalizados por la isla</p>
+    </div>
 
-      <div class="card">
-        <h3>💶 Precios fijos</h3>
-        <p>Sin sorpresas ni costes ocultos</p>
-      </div>
+    <div class="card">
+      <h3>💶 Precio fijo</h3>
+      <p>Sin costes ocultos</p>
+    </div>
 
-      <div class="card">
-        <h3>⭐ 4.9/5 clientes</h3>
-        <p>Más de 500 valoraciones reales</p>
-      </div>
+    <div class="card">
+      <h3>⭐ 4.9/5</h3>
+      <p>Clientes satisfechos</p>
     </div>
 
   </div>
@@ -201,14 +183,46 @@ footer {
 </section>
 
 <footer>
-  © 2026 Tenerife Transfers - Servicio Premium
+  © 2026 Tenerife Transfers
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/34600000000"
+<a href="https://wa.me/34685529924"
 style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;">
 💬
 </a>
+
+<script>
+const precios = {
+  "Costa Adeje": 40,
+  "Playa de las Américas": 40,
+  "Los Cristianos": 35,
+  "Puerto de la Cruz": 110,
+  "Santa Cruz": 120
+};
+
+function calcular() {
+  let destino = document.getElementById("destino").value;
+  let precio = precios[destino];
+
+  if(precio){
+    document.getElementById("precio").innerHTML = "Precio estimado: " + precio + "€";
+  } else {
+    document.getElementById("precio").innerHTML = "Selecciona un destino";
+  }
+}
+
+function reservar() {
+  let destino = document.getElementById("destino").value;
+  let fecha = document.getElementById("fecha").value;
+  let precio = precios[destino];
+
+  let mensaje = "Hola, quiero reservar un transfer desde Aeropuerto Sur (TFS) a " + destino + " el día " + fecha + ". Precio estimado: " + precio + "€";
+
+  let url = "https://wa.me/34685529924?text=" + encodeURIComponent(mensaje);
+  window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>

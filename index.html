@@ -10,24 +10,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #070707;
+  background: #0a0a0a;
   color: #fff;
 }
 
 /* HEADER */
 header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
@@ -37,8 +38,8 @@ header {
 
 /* HERO */
 .hero {
-  padding: 140px 20px;
   text-align: center;
+  padding: 140px 20px;
   background:
     linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
     url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80')
@@ -58,9 +59,9 @@ header {
 }
 
 .badge {
-  margin-top: 20px;
-  opacity: 0.9;
+  margin-top: 18px;
   font-size: 14px;
+  opacity: 0.9;
 }
 
 /* LAYOUT */
@@ -71,64 +72,81 @@ header {
   flex-wrap: wrap;
 }
 
-.left, .right {
-  flex: 1;
+/* LEFT */
+.left {
+  flex: 1.2;
   min-width: 320px;
 }
 
-/* CARDS */
+/* RIGHT */
+.right {
+  flex: 0.8;
+  min-width: 300px;
+}
+
+/* CARD BASE */
 .card {
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  padding: 20px;
+  backdrop-filter: blur(12px);
   border-radius: 14px;
+  padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* PRECIOS */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 /* FORM */
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 label {
   font-size: 12px;
   opacity: 0.7;
-  display: block;
-  margin-bottom: 4px;
 }
 
 select, input {
   width: 100%;
   padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
   background: rgba(0,0,0,0.4);
   color: white;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
   outline: none;
 }
 
 /* CTA */
 .cta {
-  background: linear-gradient(90deg, #00c2ff, #00ff9d);
-  color: #000;
+  width: 100%;
   padding: 14px;
   border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#00c2ff,#00ff9d);
   font-weight: 700;
   cursor: pointer;
-  width: 100%;
-  border-radius: 8px;
   margin-top: 10px;
 }
 
-/* RESULTADO */
+/* RESULT */
 #precio {
-  font-size: 22px;
+  margin-top: 12px;
+  font-size: 20px;
   color: #00ff9d;
-  margin-top: 10px;
   font-weight: 600;
-  line-height: 1.5;
+}
+
+/* RIGHT INFO */
+.right .card i {
+  color: #00c2ff;
+  margin-right: 8px;
 }
 
 /* WHATSAPP */
@@ -137,13 +155,23 @@ select, input {
   bottom: 20px;
   right: 20px;
   background: #25D366;
-  color: #fff;
+  color: white;
   padding: 16px;
   border-radius: 50%;
   font-size: 20px;
 }
-</style>
 
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -155,17 +183,28 @@ select, input {
 
 <section class="hero">
   <h1>Transfers privados en Tenerife sin esperas</h1>
-  <p>Servicio premium con cálculo automático de precio según distancia real</p>
-
-  <div class="badge">
-    ⭐ 4.9/5 valoraciones · 🚖 Base Santa Cruz · 📍 Precio dinámico por km
-  </div>
+  <p>Recogida directa en aeropuerto con precio calculado por distancia real</p>
+  <div class="badge">⭐ 4.9/5 · 🚖 Base Santa Cruz · 📍 Precio dinámico por km</div>
 </section>
 
 <section class="container">
 
+  <!-- LEFT -->
   <div class="left">
 
+    <!-- PRECIOS -->
+    <div class="card">
+      <h2>Precios orientativos</h2>
+
+      <div class="price-row"><span>Costa Adeje</span><span>55€ - 75€</span></div>
+      <div class="price-row"><span>Playa de las Américas</span><span>50€ - 70€</span></div>
+      <div class="price-row"><span>Los Cristianos</span><span>45€ - 65€</span></div>
+      <div class="price-row"><span>Puerto de la Cruz</span><span>95€ - 130€</span></div>
+      <div class="price-row"><span>Santa Cruz</span><span>20€ - 35€</span></div>
+
+    </div>
+
+    <!-- FORM -->
     <div class="card">
       <h2>Reserva rápida</h2>
 
@@ -204,6 +243,16 @@ select, input {
 
   </div>
 
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="card"><i class="fa fa-plane"></i> Transfers aeropuerto sin esperas</div>
+    <div class="card"><i class="fa fa-map"></i> Excursiones privadas por la isla</div>
+    <div class="card"><i class="fa fa-euro-sign"></i> Precio fijo sin sorpresas</div>
+    <div class="card"><i class="fa fa-star"></i> 4.9/5 clientes satisfechos</div>
+
+  </div>
+
 </section>
 
 <a class="whatsapp" href="https://wa.me/34685529924" target="_blank">
@@ -212,17 +261,15 @@ select, input {
 
 <script>
 
-/* TARIFA REALISTA */
+/* MODELO REALISTA */
 const tarifaKm = 1.25;
 const baseServicio = 8;
 
-/* DISTANCIA DESDE BASE SANTA CRUZ */
 const distanciaBase = {
   TFS: 60,
   TFN: 15
 };
 
-/* DISTANCIA A DESTINOS */
 const destinosKm = {
   "Costa Adeje": 65,
   "Playa de las Américas": 60,
@@ -233,40 +280,38 @@ const destinosKm = {
 
 function calcular() {
 
-  let origen = document.getElementById("origen").value;
-  let destino = document.getElementById("destino").value;
+  let o = document.getElementById("origen").value;
+  let d = document.getElementById("destino").value;
 
-  if (!destino) {
+  if (!d) {
     document.getElementById("precio").innerHTML = "Selecciona destino";
     return;
   }
 
-  let km = distanciaBase[origen] + destinosKm[destino];
+  let km = distanciaBase[o] + destinosKm[d];
   let precio = Math.round((km * tarifaKm) + baseServicio);
 
   document.getElementById("precio").innerHTML =
-    "Distancia estimada: " + km + " km<br>" +
-    "Precio final: " + precio + "€";
-
+    "Distancia estimada: " + km + " km<br>Precio final: " + precio + "€";
 }
 
 function reservar() {
 
-  let origen = document.getElementById("origen").value;
-  let destino = document.getElementById("destino").value;
-  let fecha = document.getElementById("fecha").value;
+  let o = document.getElementById("origen").value;
+  let d = document.getElementById("destino").value;
+  let f = document.getElementById("fecha").value;
 
-  let km = distanciaBase[origen] + destinosKm[destino];
+  let km = distanciaBase[o] + destinosKm[d];
   let precio = Math.round((km * tarifaKm) + baseServicio);
 
-  let mensaje = `Transfer Tenerife:
-Origen: ${origen}
-Destino: ${destino}
-Fecha: ${fecha}
+  let msg = `Transfer Tenerife:
+Origen: ${o}
+Destino: ${d}
+Fecha: ${f}
 Distancia: ${km} km
-Precio final: ${precio}€`;
+Precio: ${precio}€`;
 
-  window.open("https://wa.me/34685529924?text=" + encodeURIComponent(mensaje), "_blank");
+  window.open("https://wa.me/34685529924?text=" + encodeURIComponent(msg), "_blank");
 }
 
 </script>

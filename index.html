@@ -56,20 +56,24 @@
 
         .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* HERO ACTUALIZADO CON IMAGEN Y PARALLAX */
+        /* --- BLOQUE HERO CORREGIDO CON IMAGEN TURÍSTICA --- */
         .hero {
             position: relative;
-            padding: 160px 20px; /* Un poco más de aire */
+            padding: 160px 20px;
             text-align: center;
-            /* Imagen referente a Tenerife (carretera al atardecer) */
-            background-image: url('https://images.unsplash.com/photo-1590711918454-04f86d634eb7?q=80&w=1920&auto=format&fit=crop');
+            /* Imagen del Teide y carretera (Icono de Tenerife) */
+            background-image: url('https://images.unsplash.com/photo-1552525164-3258c703080e?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efecto Parallax sutil */
+            background-attachment: fixed;
             background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Capa oscura para garantizar legibilidad */
+        /* Capa de contraste para que el texto NO se pierda */
         .hero::before {
             content: '';
             position: absolute;
@@ -77,18 +81,32 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65); /* Ajustar opacidad según la imagen */
+            background: rgba(0, 0, 0, 0.55); /* Capa oscura equilibrada */
             z-index: 1;
         }
 
-        /* Asegurar que el texto esté sobre la capa oscura */
         .hero h1, .hero p {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Texto por encima de la capa oscura */
+            margin: 0 auto;
         }
 
-        .hero h1 { font-size: clamp(32px, 6vw, 56px); margin-bottom: 15px; font-weight: 700; letter-spacing: -1px; }
-        .hero p { color: #e2e8f0; font-size: 20px; max-width: 800px; margin: 0 auto; font-weight: 300; }
+        .hero h1 { 
+            font-size: clamp(32px, 6vw, 56px); 
+            margin-bottom: 15px; 
+            font-weight: 700; 
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8); /* Sombra para legibilidad extra */
+        }
+
+        .hero p { 
+            color: #ffffff; 
+            font-size: 20px; 
+            max-width: 800px; 
+            font-weight: 400;
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.8);
+        }
+        /* --- FIN BLOQUE HERO --- */
 
         .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
@@ -170,7 +188,7 @@
         @media (max-width: 768px) {
             .form-grid { grid-template-columns: 1fr; }
             .full-width { grid-column: span 1; }
-            .hero { background-attachment: scroll; /* Desactivar parallax en móvil para rendimiento */ padding: 120px 20px;}
+            .hero { background-attachment: scroll; padding: 120px 20px;}
         }
     </style>
 </head>

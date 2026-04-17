@@ -56,12 +56,10 @@
 
         .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* SECCIÓN HERO CON TU IMAGEN LOCAL */
         .hero {
             position: relative;
             padding: 180px 20px;
             text-align: center;
-            /* Aquí llama a la imagen que guardes en tu carpeta */
             background-image: url('fondo-teide.jpg'); 
             background-size: cover;
             background-position: center;
@@ -98,7 +96,6 @@
         h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
         h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
 
-        /* LOS 5 CUADROS EN UNA SOLA LÍNEA */
         .cards {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -115,8 +112,38 @@
         }
 
         .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { font-size: 16px; color: var(--accent); margin-bottom: 10px; }
+        
+        /* Títulos de servicios un poco más grandes */
+        .card h3 { 
+            font-size: 20px; 
+            color: var(--accent); 
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
         .card p { font-size: 12px; color: var(--text-dim); margin: 0; line-height: 1.3; }
+
+        /* Apartado llamativo para el eslogan */
+        .middle-text {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0a1118 50%, var(--bg-dark) 100%);
+            border-top: 1px solid #1a222d;
+            border-bottom: 1px solid #1a222d;
+        }
+
+        .middle-text p {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 700;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, #ffffff, var(--accent), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
 
         .booking-container {
             background: #ffffff;
@@ -204,9 +231,11 @@
         </div>
     </div>
 </section>
+
 <div class="middle-text">
     <p>"Puntualidad, confort y discreción en cada trayecto por la isla de Tenerife."</p>
-</div
+</div>
+
 <section class="section" id="reserva">
     <h2>Solicitar Reserva</h2>
     <div class="booking-container">

@@ -56,13 +56,13 @@
 
         .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* SECCIÓN HERO CON IMAGEN DE TRANSFER PROFESIONAL EN EL TEIDE */
+        /* SECCIÓN HERO - IMAGEN REAL DE TENERIFE (TEIDE) */
         .hero {
             position: relative;
             padding: 180px 20px;
             text-align: center;
-            /* IMAGEN DE VEHÍCULO TRANSFER EN CARRETERA ESCÉNICA */
-            background-image: url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2000&auto=format&fit=crop');
+            /* IMAGEN REAL DE LA CARRETERA DEL TEIDE EN TENERIFE */
+            background-image: url('https://images.unsplash.com/photo-1563294371-5079a0da7484?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -81,7 +81,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.55); /* Capa oscura para legibilidad */
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 1;
         }
 
@@ -128,6 +128,8 @@
 
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .full-width { grid-column: span 2; }
+
+        .form-group { margin-bottom: 5px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #666; text-transform: uppercase; }
         
         input, select, textarea {
@@ -170,7 +172,7 @@
 
 <section class="hero">
     <h1>Excelencia en Transporte Privado</h1>
-    <p>Disfrute de los mejores paisajes de Tenerife mientras le llevamos a su destino con total comodidad.</p>
+    <p>Puntualidad, confort y discreción en cada trayecto por la isla de Tenerife.</p>
 </section>
 
 <section class="section">
@@ -208,6 +210,7 @@
                     <label>Nombre y Apellidos</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre del pasajero principal" required>
                 </div>
+
                 <div class="form-group">
                     <label>Punto de Origen</label>
                     <select name="origen" id="origen" required>
@@ -216,6 +219,7 @@
                         <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label>Municipio de Destino</label>
                     <select name="destino" id="destino" required>
@@ -224,17 +228,23 @@
                         <option value="Arona">Playa de las Américas</option>
                         <option value="Puerto de la Cruz">Puerto de la Cruz</option>
                         <option value="Santa Cruz">Santa Cruz de Tenerife</option>
+                        <option value="Los Gigantes">Los Gigantes</option>
+                        <option value="La Laguna">La Laguna</option>
+                        <option value="Isora">Guía de Isora</option>
                     </select>
                 </div>
+
                 <div class="form-group full-width">
                     <label>Fecha y Hora</label>
                     <input type="datetime-local" name="fecha" id="fecha" required>
                 </div>
+
                 <div class="form-group full-width">
                     <label>Notas Adicionales</label>
                     <textarea name="notas" id="notas" placeholder="Nº de vuelo, dirección exacta..."></textarea>
                 </div>
             </div>
+
             <button type="button" class="cta-button" onclick="enviarReserva()">
                 Confirmar por WhatsApp y Email
             </button>

@@ -56,24 +56,25 @@
 
         .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* SECCIÓN HERO - IMAGEN REAL DE TENERIFE (TEIDE) */
+        /* SECCIÓN HERO - IMAGEN ACTUALIZADA Y COMPATIBLE */
         .hero {
             position: relative;
             padding: 180px 20px;
             text-align: center;
-            /* IMAGEN REAL DE LA CARRETERA DEL TEIDE EN TENERIFE */
-            background-image: url('https://images.unsplash.com/photo-1563294371-5079a0da7484?q=80&w=2000&auto=format&fit=crop');
+            /* IMAGEN ICONICA: Carretera del Teide, Tenerife */
+            background-image: url('https://images.unsplash.com/photo-1506012733847-532a1753c55b?auto=format&fit=crop&q=80&w=1920');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
-            min-height: 400px;
+            background-attachment: scroll; /* Cambiado a scroll para mejor compatibilidad móvil */
+            min-height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
+        /* Capa oscura suave para que el texto sea legible */
         .hero::before {
             content: '';
             position: absolute;
@@ -81,17 +82,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
+            background: rgba(0, 0, 0, 0.4); 
             z-index: 1;
         }
 
         .hero h1, .hero p {
             position: relative;
             z-index: 2;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
         }
 
-        .hero h1 { font-size: clamp(32px, 6vw, 56px); margin-bottom: 15px; font-weight: 700; }
+        .hero h1 { font-size: clamp(32px, 6vw, 56px); margin-bottom: 15px; font-weight: 700; line-height: 1.2; }
         .hero p { color: #ffffff; font-size: 20px; max-width: 800px; margin: 0 auto; font-weight: 400; }
 
         .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
@@ -124,12 +125,11 @@
             max-width: 650px;
             margin: 0 auto;
             color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .full-width { grid-column: span 2; }
-
-        .form-group { margin-bottom: 5px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #666; text-transform: uppercase; }
         
         input, select, textarea {
@@ -159,7 +159,7 @@
 
         @media (max-width: 768px) {
             .form-grid { grid-template-columns: 1fr; }
-            .hero { padding: 100px 20px; background-attachment: scroll; }
+            .hero { padding: 100px 20px; min-height: 350px; }
         }
     </style>
 </head>
@@ -210,7 +210,6 @@
                     <label>Nombre y Apellidos</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre del pasajero principal" required>
                 </div>
-
                 <div class="form-group">
                     <label>Punto de Origen</label>
                     <select name="origen" id="origen" required>
@@ -219,7 +218,6 @@
                         <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Municipio de Destino</label>
                     <select name="destino" id="destino" required>
@@ -233,18 +231,15 @@
                         <option value="Isora">Guía de Isora</option>
                     </select>
                 </div>
-
                 <div class="form-group full-width">
                     <label>Fecha y Hora</label>
                     <input type="datetime-local" name="fecha" id="fecha" required>
                 </div>
-
                 <div class="form-group full-width">
                     <label>Notas Adicionales</label>
                     <textarea name="notas" id="notas" placeholder="Nº de vuelo, dirección exacta..."></textarea>
                 </div>
             </div>
-
             <button type="button" class="cta-button" onclick="enviarReserva()">
                 Confirmar por WhatsApp y Email
             </button>

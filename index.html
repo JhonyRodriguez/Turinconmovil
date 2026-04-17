@@ -56,13 +56,13 @@
 
         .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* SECCIÓN HERO CON IMAGEN DE COCHE Y TEIDE */
+        /* SECCIÓN HERO CON IMAGEN DE TRANSFER PROFESIONAL EN EL TEIDE */
         .hero {
             position: relative;
             padding: 180px 20px;
             text-align: center;
-            /* IMAGEN DE COCHE EN CARRETERA TEIDE */
-            background-image: url('https://images.unsplash.com/photo-1506012733847-532a1753c55b?q=80&w=2000&auto=format&fit=crop');
+            /* IMAGEN DE VEHÍCULO TRANSFER EN CARRETERA ESCÉNICA */
+            background-image: url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -81,7 +81,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
+            background: rgba(0, 0, 0, 0.55); /* Capa oscura para legibilidad */
             z-index: 1;
         }
 
@@ -94,45 +94,28 @@
         .hero h1 { font-size: clamp(32px, 6vw, 56px); margin-bottom: 15px; font-weight: 700; }
         .hero p { color: #ffffff; font-size: 20px; max-width: 800px; margin: 0 auto; font-weight: 400; }
 
-        .section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
         h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
 
-        /* AJUSTE PARA QUE LOS 5 CUADROS SE VEAN EN UNA LÍNEA */
         .cards {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 25px 15px;
-            border-radius: 15px;
+            padding: 40px 25px;
+            border-radius: 20px;
             text-align: center;
             border: 1px solid #1e262f;
             transition: all 0.4s;
         }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { font-size: 16px; color: var(--accent); margin-bottom: 10px; }
-        .card p { font-size: 12px; color: var(--text-dim); margin: 0; line-height: 1.3; }
-
-        /* TEXTO INTERMEDIO BONITO */
-        .middle-text {
-            text-align: center;
-            padding: 30px 20px;
-            margin-bottom: 20px;
-        }
-
-        .middle-text p {
-            font-size: 20px;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--accent);
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card h3 { font-size: 20px; color: var(--accent); margin-bottom: 15px; }
+        .card p { font-size: 14px; color: var(--text-dim); margin: 0; }
 
         .booking-container {
             background: #ffffff;
@@ -170,15 +153,9 @@
             margin-top: 20px;
         }
 
-        footer { text-align: center; padding: 40px 20px; color: var(--text-dim); border-top: 1px solid #1a222d; }
-
-        /* RESPONSIVE: En móviles se ponen uno debajo de otro */
-        @media (max-width: 992px) {
-            .cards { grid-template-columns: repeat(3, 1fr); }
-        }
+        footer { text-align: center; padding: 60px 20px; color: var(--text-dim); border-top: 1px solid #1a222d; }
 
         @media (max-width: 768px) {
-            .cards { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
             .hero { padding: 100px 20px; background-attachment: scroll; }
         }
@@ -201,30 +178,26 @@
     <div class="cards">
         <div class="card">
             <h3>✈️ Aeropuertos</h3>
-            <p>Recogidas en Tenerife Norte y Sur.</p>
+            <p>Recogidas en Tenerife Norte y Sur con seguimiento de vuelo en tiempo real.</p>
         </div>
         <div class="card">
             <h3>🏙️ Interurbanos</h3>
-            <p>Traslados rápidos entre municipios.</p>
+            <p>Traslados rápidos y cómodos entre cualquier municipio de la isla.</p>
         </div>
         <div class="card">
             <h3>💼 Empresas</h3>
-            <p>Máxima discreción y puntualidad.</p>
+            <p>Traslados ejecutivos y eventos con la máxima discreción y puntualidad.</p>
         </div>
         <div class="card">
             <h3>🏝️ Excursiones</h3>
-            <p>Visitas privadas personalizadas.</p>
+            <p>Visitas privadas personalizadas a los rincones más bellos de Tenerife.</p>
         </div>
         <div class="card">
             <h3>🚐 Grupos VIP</h3>
-            <p>Vehículos de alta capacidad.</p>
+            <p>Vehículos de alta capacidad para familias, bodas y traslados grupales.</p>
         </div>
     </div>
 </section>
-
-<div class="middle-text">
-    <p>"Puntualidad, confort y discreción en cada trayecto por la isla de Tenerife."</p>
-</div>
 
 <section class="section" id="reserva">
     <h2>Solicitar Reserva</h2>
@@ -251,7 +224,6 @@
                         <option value="Arona">Playa de las Américas</option>
                         <option value="Puerto de la Cruz">Puerto de la Cruz</option>
                         <option value="Santa Cruz">Santa Cruz de Tenerife</option>
-                        <option value="Los Gigantes">Los Gigantes</option>
                     </select>
                 </div>
                 <div class="form-group full-width">
@@ -260,7 +232,7 @@
                 </div>
                 <div class="form-group full-width">
                     <label>Notas Adicionales</label>
-                    <textarea name="notas" id="notas" placeholder="Dirección exacta, nº vuelo..."></textarea>
+                    <textarea name="notas" id="notas" placeholder="Nº de vuelo, dirección exacta..."></textarea>
                 </div>
             </div>
             <button type="button" class="cta-button" onclick="enviarReserva()">

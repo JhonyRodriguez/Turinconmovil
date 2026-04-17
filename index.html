@@ -245,24 +245,92 @@
                     <label>Nombre y Apellidos</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre del pasajero principal" required>
                 </div>
-                <div class="form-group">
-                    <label>Punto de Origen</label>
-                    <select name="origen" id="origen" required>
-                        <option value="">Seleccione Aeropuerto...</option>
-                        <option value="TFS">Tenerife Sur (TFS)</option>
-                        <option value="TFN">Tenerife Norte (TFN)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Municipio de Destino</label>
-                    <select name="destino" id="destino" required>
-                        <option value="">Seleccione Municipio...</option>
-                        <option value="Adeje">Costa Adeje</option>
-                        <option value="Arona">Playa de las Américas</option>
-                        <option value="Puerto">Puerto de la Cruz</option>
-                        <option value="SC">Santa Cruz</option>
-                    </select>
-                </div>
+<div class="form-group">
+    <label>Punto de Origen</label>
+    <select name="origen" id="origen" required>
+        <option value="">Seleccione Origen...</option>
+        <optgroup label="✈️ Aeropuertos">
+            <option value="TFS">Aeropuerto Tenerife Sur (TFS)</option>
+            <option value="TFN">Aeropuerto Tenerife Norte (TFN)</option>
+        </optgroup>
+        <optgroup label="🏙️ Municipios">
+            <option value="Adeje">Adeje</option>
+            <option value="Arafo">Arafo</option>
+            <option value="Arico">Arico</option>
+            <option value="Arona">Arona</option>
+            <option value="Buenavista">Buenavista del Norte</option>
+            <option value="Candelaria">Candelaria</option>
+            <option value="Fasnia">Fasnia</option>
+            <option value="Garachico">Garachico</option>
+            <option value="Granadilla">Granadilla de Abona</option>
+            <option value="Guía de Isora">Guía de Isora</option>
+            <option value="Güímar">Güímar</option>
+            <option value="Icod">Icod de los Vinos</option>
+            <option value="La Guancha">La Guancha</option>
+            <option value="La Matanza">La Matanza de Acentejo</option>
+            <option value="La Orotava">La Orotava</option>
+            <option value="La Victoria">La Victoria de Acentejo</option>
+            <option value="Los Realejos">Los Realejos</option>
+            <option value="Los Silos">Los Silos</option>
+            <option value="Puerto de la Cruz">Puerto de la Cruz</option>
+            <option value="Puertito de Güímar">Puertito de Güímar</option>
+            <option value="San Cristóbal de La Laguna">San Cristóbal de La Laguna</option>
+            <option value="San Juan de la Rambla">San Juan de la Rambla</option>
+            <option value="San Miguel de Abona">San Miguel de Abona</option>
+            <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+            <option value="Santa Úrsula">Santa Úrsula</option>
+            <option value="Santiago del Teide">Santiago del Teide</option>
+            <option value="El Sauzal">El Sauzal</option>
+            <option value="Tacoronte">Tacoronte</option>
+            <option value="El Tanque">El Tanque</option>
+            <option value="Tegueste">Tegueste</option>
+            <option value="Vilaflor">Vilaflor</option>
+        </optgroup>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Punto de Destino</label>
+    <select name="destino" id="destino" required>
+        <option value="">Seleccione Destino...</option>
+        <optgroup label="✈️ Aeropuertos">
+            <option value="TFS">Aeropuerto Tenerife Sur (TFS)</option>
+            <option value="TFN">Aeropuerto Tenerife Norte (TFN)</option>
+        </optgroup>
+        <optgroup label="🏙️ Municipios">
+            <option value="Adeje">Adeje</option>
+            <option value="Arafo">Arafo</option>
+            <option value="Arico">Arico</option>
+            <option value="Arona">Arona</option>
+            <option value="Buenavista">Buenavista del Norte</option>
+            <option value="Candelaria">Candelaria</option>
+            <option value="Fasnia">Fasnia</option>
+            <option value="Garachico">Garachico</option>
+            <option value="Granadilla">Granadilla de Abona</option>
+            <option value="Guía de Isora">Guía de Isora</option>
+            <option value="Güímar">Güímar</option>
+            <option value="Icod">Icod de los Vinos</option>
+            <option value="La Guancha">La Guancha</option>
+            <option value="La Matanza">La Matanza de Acentejo</option>
+            <option value="La Orotava">La Orotava</option>
+            <option value="La Victoria">La Victoria de Acentejo</option>
+            <option value="Los Realejos">Los Realejos</option>
+            <option value="Los Silos">Los Silos</option>
+            <option value="Puerto de la Cruz">Puerto de la Cruz</option>
+            <option value="San Cristóbal de La Laguna">San Cristóbal de La Laguna</option>
+            <option value="San Juan de la Rambla">San Juan de la Rambla</option>
+            <option value="San Miguel de Abona">San Miguel de Abona</option>
+            <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+            <option value="Santa Úrsula">Santa Úrsula</option>
+            <option value="Santiago del Teide">Santiago del Teide</option>
+            <option value="El Sauzal">El Sauzal</option>
+            <option value="Tacoronte">Tacoronte</option>
+            <option value="El Tanque">El Tanque</option>
+            <option value="Tegueste">Tegueste</option>
+            <option value="Vilaflor">Vilaflor</option>
+        </optgroup>
+    </select>
+</div>
                 <div class="form-group full-width">
                     <label>Fecha y Hora</label>
                     <input type="datetime-local" name="fecha" id="fecha" required>

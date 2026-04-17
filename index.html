@@ -31,12 +31,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background: rgba(10, 17, 24, 0.9);
-            backdrop-filter: blur(15px);
+            background: rgba(10, 17, 24, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #1a222d;
         }
 
         .logo { font-weight: 700; font-size: 22px; color: var(--text-main); text-decoration: none; }
@@ -46,163 +46,141 @@
             font-weight: 600;
             color: var(--accent);
             text-decoration: none;
-            background: rgba(0, 212, 255, 0.1);
-            padding: 10px 25px;
+            background: rgba(0, 122, 255, 0.1);
+            padding: 8px 20px;
             border-radius: 50px;
             font-size: 14px;
             border: 1px solid rgba(0, 212, 255, 0.3);
             transition: 0.3s;
         }
 
-        .phone-contact:hover { background: var(--primary); color: white; transform: scale(1.05); }
+        .phone-contact:hover { background: var(--primary); color: white; }
 
-        /* SECCIÓN HERO - IMAGEN CON MÁS VIDA Y LUZ */
+        /* SECCIÓN HERO CON IMAGEN DE COCHE Y TEIDE */
         .hero {
             position: relative;
-            padding: 200px 20px;
+            padding: 180px 20px;
             text-align: center;
-            /* Imagen de Tenerife con mar y luz vibrante */
-            background-image: url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?q=80&w=2000&auto=format&fit=crop');
+            /* IMAGEN DE COCHE EN CARRETERA TEIDE */
+            background-image: url('https://images.unsplash.com/photo-1506012733847-532a1753c55b?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
-            background-position: center 30%;
+            background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            min-height: 500px;
+            min-height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        /* Capa de contraste más elegante (degradado azulado) */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(5, 8, 10, 0.7) 0%, rgba(5, 8, 10, 0.3) 100%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 1;
         }
 
         .hero h1, .hero p {
             position: relative;
             z-index: 2;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
-        .hero h1 { 
-            font-size: clamp(36px, 8vw, 64px); 
-            margin-bottom: 20px; 
-            font-weight: 700; 
-            letter-spacing: -1px;
-            background: linear-gradient(to bottom, #ffffff, #e0e0e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        .hero h1 { font-size: clamp(32px, 6vw, 56px); margin-bottom: 15px; font-weight: 700; }
+        .hero p { color: #ffffff; font-size: 20px; max-width: 800px; margin: 0 auto; font-weight: 400; }
 
-        .hero p { 
-            color: #f0f4f8; 
-            font-size: 22px; 
-            max-width: 850px; 
-            margin: 0 auto; 
-            font-weight: 400; 
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
+        .section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 32px; margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
 
-        .section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 36px; margin-bottom: 60px; font-weight: 700; }
-        h2::after { content: ''; width: 80px; height: 4px; background: var(--primary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
-
+        /* AJUSTE PARA QUE LOS 5 CUADROS SE VEAN EN UNA LÍNEA */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 50px 30px;
-            border-radius: 25px;
+            padding: 25px 15px;
+            border-radius: 15px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #1e262f;
+            transition: all 0.4s;
         }
 
-        .card:hover { transform: translateY(-15px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,122,255,0.15); }
-        .card h3 { font-size: 22px; color: var(--accent); margin-bottom: 20px; }
-        .card p { font-size: 15px; color: var(--text-dim); }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card h3 { font-size: 16px; color: var(--accent); margin-bottom: 10px; }
+        .card p { font-size: 12px; color: var(--text-dim); margin: 0; line-height: 1.3; }
 
-        /* BLOQUE INTERMEDIO LLAMATIVO */
+        /* TEXTO INTERMEDIO BONITO */
         .middle-text {
             text-align: center;
-            padding: 80px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 30px 20px;
+            margin-bottom: 20px;
         }
 
         .middle-text p {
-            font-size: clamp(20px, 4vw, 28px);
+            font-size: 20px;
             font-weight: 400;
             font-style: italic;
-            color: #ffffff;
-            max-width: 1000px;
+            color: var(--accent);
+            max-width: 800px;
             margin: 0 auto;
-            letter-spacing: 1px;
-            opacity: 0.9;
         }
 
-        /* FORMULARIO PREMIUM */
         .booking-container {
             background: #ffffff;
-            padding: 50px;
-            border-radius: 30px;
-            max-width: 700px;
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 650px;
             margin: 0 auto;
-            color: #1a202c;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            color: #333;
         }
 
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .full-width { grid-column: span 2; }
-        label { display: block; margin-bottom: 10px; font-weight: 700; font-size: 13px; color: #4a5568; text-transform: uppercase; letter-spacing: 1px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #666; text-transform: uppercase; }
         
         input, select, textarea {
             width: 100%;
-            padding: 16px;
-            border: 2px solid #edf2f7;
-            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
             font-family: inherit;
-            background: #f7fafc;
-            transition: 0.3s;
+            background: #f8fafc;
             box-sizing: border-box;
-            font-size: 15px;
         }
-
-        input:focus, select:focus { border-color: var(--primary); outline: none; background: #fff; }
 
         .cta-button {
             width: 100%;
             background: var(--success);
             color: white;
-            padding: 20px;
+            padding: 18px;
             border: none;
-            border-radius: 15px;
+            border-radius: 12px;
             font-weight: 700;
             cursor: pointer;
-            font-size: 18px;
-            margin-top: 25px;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            font-size: 16px;
+            margin-top: 20px;
         }
 
-        .cta-button:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.3); }
+        footer { text-align: center; padding: 40px 20px; color: var(--text-dim); border-top: 1px solid #1a222d; }
 
-        footer { text-align: center; padding: 80px 20px; color: var(--text-dim); border-top: 1px solid #1a222d; }
+        /* RESPONSIVE: En móviles se ponen uno debajo de otro */
+        @media (max-width: 992px) {
+            .cards { grid-template-columns: repeat(3, 1fr); }
+        }
 
         @media (max-width: 768px) {
+            .cards { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
-            .hero { padding: 120px 20px; background-attachment: scroll; }
-            .booking-container { padding: 30px 20px; }
+            .hero { padding: 100px 20px; background-attachment: scroll; }
         }
     </style>
 </head>
@@ -223,23 +201,23 @@
     <div class="cards">
         <div class="card">
             <h3>✈️ Aeropuertos</h3>
-            <p>Recogidas en Tenerife Norte y Sur con seguimiento de vuelo en tiempo real.</p>
+            <p>Recogidas en Tenerife Norte y Sur.</p>
         </div>
         <div class="card">
             <h3>🏙️ Interurbanos</h3>
-            <p>Traslados rápidos y cómodos entre cualquier municipio de la isla.</p>
+            <p>Traslados rápidos entre municipios.</p>
         </div>
         <div class="card">
             <h3>💼 Empresas</h3>
-            <p>Traslados ejecutivos y eventos con la máxima discreción y puntualidad.</p>
+            <p>Máxima discreción y puntualidad.</p>
         </div>
         <div class="card">
             <h3>🏝️ Excursiones</h3>
-            <p>Visitas privadas personalizadas a los rincones más bellos de Tenerife.</p>
+            <p>Visitas privadas personalizadas.</p>
         </div>
         <div class="card">
             <h3>🚐 Grupos VIP</h3>
-            <p>Vehículos de alta capacidad para familias, bodas y traslados grupales.</p>
+            <p>Vehículos de alta capacidad.</p>
         </div>
     </div>
 </section>
@@ -257,7 +235,6 @@
                     <label>Nombre y Apellidos</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre del pasajero principal" required>
                 </div>
-
                 <div class="form-group">
                     <label>Punto de Origen</label>
                     <select name="origen" id="origen" required>
@@ -266,7 +243,6 @@
                         <option value="Aeropuerto Tenerife Norte (TFN)">Aeropuerto Tenerife Norte (TFN)</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Municipio de Destino</label>
                     <select name="destino" id="destino" required>
@@ -276,22 +252,17 @@
                         <option value="Puerto de la Cruz">Puerto de la Cruz</option>
                         <option value="Santa Cruz">Santa Cruz de Tenerife</option>
                         <option value="Los Gigantes">Los Gigantes</option>
-                        <option value="La Laguna">La Laguna</option>
-                        <option value="Isora">Guía de Isora</option>
                     </select>
                 </div>
-
                 <div class="form-group full-width">
                     <label>Fecha y Hora</label>
                     <input type="datetime-local" name="fecha" id="fecha" required>
                 </div>
-
                 <div class="form-group full-width">
                     <label>Notas Adicionales</label>
-                    <textarea name="notas" id="notas" placeholder="Nº de vuelo, dirección exacta..."></textarea>
+                    <textarea name="notas" id="notas" placeholder="Dirección exacta, nº vuelo..."></textarea>
                 </div>
             </div>
-
             <button type="button" class="cta-button" onclick="enviarReserva()">
                 Confirmar por WhatsApp y Email
             </button>
@@ -309,23 +280,19 @@
         const telefonoWhatsApp = "34600000000"; 
         
         if(!nombre || !origen || !destino || !fecha) {
-            alert("Por favor, rellene los campos obligatorios.");
+            alert("Por favor, rellene los campos.");
             return;
         }
 
         const mensaje = `*RESERVA TRANSFER*%0A*Nombre:* ${nombre}%0A*Origen:* ${origen}%0A*Destino:* ${destino}%0A*Fecha:* ${fecha}%0A*Notas:* ${notas}`;
         window.open(`https://wa.me/${telefonoWhatsApp}?text=${mensaje}`, '_blank');
-        
-        // Solo enviar el formulario si se ha configurado Formspree
-        if(!document.getElementById('transferForm').action.includes("TU_ID_AQUI")) {
-            document.getElementById('transferForm').submit();
-        }
+        document.getElementById('transferForm').submit();
     }
 </script>
 
 <footer>
     <p><strong>TENERIFE TRANSFERS PREMIUM</strong></p>
-    <p>© 2026 Reservados todos los derechos. Servicio de transporte privado VIP.</p>
+    <p>© 2026 Reservados todos los derechos.</p>
 </footer>
 
 </body>

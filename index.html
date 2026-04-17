@@ -312,33 +312,41 @@
 
 <script>
     function enviarReserva() {
-        // Capturar los datos
+        // 1. Capturamos todos los datos, incluyendo las notas
         const nombre = document.getElementById('nombre').value;
         const origen = document.getElementById('origen').value;
         const destino = document.getElementById('destino').value;
         const fecha = document.getElementById('fecha').value;
-        
-        // TU TELÉFONO CONFIGURADO
+        const observaciones = document.getElementById('observaciones').value; // Aquí capturamos la nota
+
+        // Teléfono
         const telefonoWhatsApp = "34685529924"; 
 
+        // Validación de campos obligatorios
         if(!nombre || !origen || !destino || !fecha) {
-            alert("Por favor, rellene todos los campos del formulario.");
+            alert("Por favor, rellene los campos obligatorios.");
             return;
         }
 
-        // 1. Crear el mensaje para WhatsApp
-        const mensaje = `*SOLICITUD DE RESERVA*%0A%0A` +
-                        `*Nombre:* ${nombre}%0A` +
-                        `*Origen:* ${origen}%0A` +
-                        `*Destino:* ${destino}%0A` +
-                        `*Fecha:* ${fecha}%0A%0A` +
-                        `_Por favor, confirme disponibilidad._`;
+        // 2. Construimos el mensaje de WhatsApp poco a poco
+        let mensaje = `*SOLICITUD DE RESERVA*%0A%0A` +
+                      `*Nombre:* ${nombre}%0A` +
+                      `*Origen:* ${origen}%0A` +
+                      `*Destino:* ${destino}%0A` +
+                      `*Fecha:* ${fecha}`;
 
-        // 2. Abrir WhatsApp en una pestaña nueva
+        // 3. ESTA ES LA PARTE CLAVE:
+        // Si hay observaciones, las añadimos al mensaje de WhatsApp
+        if (observaciones.trim() !== "") {
+            mensaje += `%0A*Notas:* ${observaciones}`;
+        }
+
+        mensaje += `%0A%0A_Por favor, confirme disponibilidad._`;
+
+        // 4. Abrimos WhatsApp con TODO el texto (incluida la nota)
         window.open(`https://wa.me/${telefonoWhatsApp}?text=${mensaje}`, '_blank');
 
-        // 3. Enviar el formulario por Email (esto dispara Formspree)
-        // El pequeño delay es para asegurar que la pestaña de WA se abra primero
+        // 5. Enviamos el formulario por Email (Formspree lo enviará todo también)
         setTimeout(() => {
             document.getElementById('transferForm').submit();
         }, 1000);
